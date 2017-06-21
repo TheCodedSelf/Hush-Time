@@ -10,10 +10,12 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    private var hushTimeBlock: HushTimeBlock?
     /*
      1. start to kill
      2. stop to open
      3. timer
+     -. Show timer in ui
      4. change timer in UI
      5. file finder
      6. notification
@@ -31,17 +33,17 @@ class ViewController: NSViewController {
     }
 
     @IBAction func startHushTime(_ sender: NSButton) {
-        let appFinder = AppOpenerCloserImpl()
-        appFinder.killApp(named: "Franz")
-        appFinder.killApp(named: "Mail")
-        appFinder.killApp(named: "Messages")
+        hushTimeBlock = HushTimeBlock(appNames: ["Franz", "Mail", "Messages"],
+                                      durationInSeconds: 25*60,
+                                      fireOnUpdate: { remainingSeconds in
+                                        print(remainingSeconds)
+        })
+        
+        hushTimeBlock?.start()
     }
 
     @IBAction func stopHushTime(_ sender: NSButton) {
-        let appFinder = AppOpenerCloserImpl()
-        appFinder.launchApp(named: "Franz")
-        appFinder.launchApp(named: "Mail")
-        appFinder.launchApp(named: "Messages")
+        hushTimeBlock?.finish()
     }
 }
 

@@ -12,6 +12,7 @@
 		954C29031EFA2CE4005A73A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 954C29021EFA2CE4005A73A4 /* Assets.xcassets */; };
 		954C29061EFA2CE4005A73A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 954C29041EFA2CE4005A73A4 /* Main.storyboard */; };
 		954C291C1EFA2D3E005A73A4 /* AppOpenerCloser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954C291B1EFA2D3E005A73A4 /* AppOpenerCloser.swift */; };
+		954C29221EFA3A69005A73A4 /* HushTimeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954C29211EFA3A69005A73A4 /* HushTimeBlock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		954C290C1EFA2CE5005A73A4 /* HushTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HushTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		954C29121EFA2CE5005A73A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		954C291B1EFA2D3E005A73A4 /* AppOpenerCloser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppOpenerCloser.swift; sourceTree = "<group>"; };
+		954C29211EFA3A69005A73A4 /* HushTimeBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HushTimeBlock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				954C29041EFA2CE4005A73A4 /* Main.storyboard */,
 				954C29071EFA2CE4005A73A4 /* Info.plist */,
 				954C291B1EFA2D3E005A73A4 /* AppOpenerCloser.swift */,
+				954C29211EFA3A69005A73A4 /* HushTimeBlock.swift */,
 			);
 			path = HushTime;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				954C29221EFA3A69005A73A4 /* HushTimeBlock.swift in Sources */,
 				954C29011EFA2CE4005A73A4 /* ViewController.swift in Sources */,
 				954C291C1EFA2D3E005A73A4 /* AppOpenerCloser.swift in Sources */,
 				954C28FF1EFA2CE4005A73A4 /* AppDelegate.swift in Sources */,

@@ -10,11 +10,11 @@ import Foundation
 import AppKit
 
 protocol AppOpenerCloser {
-    func killApp(path: String)
-    func launchApp(named: String)
+    func killApp(named: String)
+    func launchApp(named: String, in: NSWorkspace)
 }
 
-struct AppOpenerCloserImpl {
+struct AppOpenerCloserImpl: AppOpenerCloser {
     
     func launchApp(named name: String, in workspace: NSWorkspace = NSWorkspace.shared()) {
         workspace.launchApplication(name)

@@ -726,9 +726,6 @@
                             <constraint firstItem="c85-mM-kGe" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="zyO-JG-4LF"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="start" destination="RJu-Yr-WCh" id="KrL-Ba-B3N"/>
-                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
