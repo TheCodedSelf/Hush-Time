@@ -26,7 +26,9 @@ class HushTimeBlock {
     }
     
     func start(with appOpenerCloser: AppOpenerCloser = AppOpenerCloserImpl()) {
-        appNames.forEach(appOpenerCloser.killApp)
+        
+        killApps()
+        
         _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             
             if self.secondsRemaining < 1 {
@@ -45,7 +47,17 @@ class HushTimeBlock {
         launchApps(with: appOpenerCloser)
     }
     
+    private func killApps(with appOpenerCloser: AppOpenerCloser = AppOpenerCloserImpl()) {
+        
+        DispatchQueue.global().async {
+            self.appNames.forEach(appOpenerCloser.killApp)
+        }
+    }
+    
     private func launchApps(with appOpenerCloser: AppOpenerCloser = AppOpenerCloserImpl()) {
-        appNames.forEach { appOpenerCloser.launchApp(named: $0, in: NSWorkspace.shared()) }
+        
+        DispatchQueue.global().async {
+            self.appNames.forEach { appOpenerCloser.launchApp(named: $0, in: NSWorkspace.shared()) }
+        }
     }
 }

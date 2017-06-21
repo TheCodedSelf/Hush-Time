@@ -10,6 +10,20 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @IBOutlet weak var remainingTimeLabel: NSTextField!
+    
+    private var remainingSeconds = 25 * 60 {
+        didSet {
+            let minutes = "\(remainingSeconds / 60)"
+            var seconds = "\(remainingSeconds % 60)"
+            let secondsValueIsOnlySingleDigit = seconds.characters.count < 2
+            if secondsValueIsOnlySingleDigit {
+                seconds = "0\(seconds)"
+            }
+            remainingTimeLabel.stringValue = "\(minutes):\(seconds)"
+        }
+    }
+    
     private var hushTimeBlock: HushTimeBlock?
     /*
      1. start to kill
@@ -33,10 +47,11 @@ class ViewController: NSViewController {
     }
 
     @IBAction func startHushTime(_ sender: NSButton) {
+        
         hushTimeBlock = HushTimeBlock(appNames: ["Franz", "Mail", "Messages"],
                                       durationInSeconds: 25*60,
-                                      fireOnUpdate: { remainingSeconds in
-                                        print(remainingSeconds)
+                                      fireOnUpdate: { [weak self] remainingSeconds in
+                                        self?.remainingSeconds = remainingSeconds
         })
         
         hushTimeBlock?.start()

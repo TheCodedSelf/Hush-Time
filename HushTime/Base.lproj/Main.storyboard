@@ -3,8 +3,8 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -687,21 +687,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c85-mM-kGe">
-                                <rect key="frame" x="211.5" y="110" width="58" height="50"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RJu-Yr-WCh">
+                                <rect key="frame" x="205" y="136" width="70" height="32"/>
+                                <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Kin-7b-W0u">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="startHushTime:" target="XfG-lQ-9wD" id="INB-Q2-wVY"/>
+                                </connections>
+                            </button>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="BVk-fe-YLz" userLabel="Time and Stop">
+                                <rect key="frame" x="165" y="77" width="150" height="50"/>
                                 <subviews>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RJu-Yr-WCh">
-                                        <rect key="frame" x="-6" y="22" width="70" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Kin-7b-W0u">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0R-aY-oml">
+                                        <rect key="frame" x="33" y="17" width="40" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="25:00" id="1aD-cu-0Um">
                                             <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="startHushTime:" target="XfG-lQ-9wD" id="INB-Q2-wVY"/>
-                                        </connections>
-                                    </button>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PsF-Sq-XUD">
-                                        <rect key="frame" x="-5.5" y="-7" width="69" height="32"/>
+                                        <rect key="frame" x="73" y="8" width="69" height="32"/>
                                         <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bKm-Lf-n0O">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -711,21 +719,26 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <visibilityPriorities>
-                                    <integer value="1000"/>
-                                    <integer value="1000"/>
-                                </visibilityPriorities>
-                                <customSpacing>
-                                    <real value="3.4028234663852886e+38"/>
-                                    <real value="3.4028234663852886e+38"/>
-                                </customSpacing>
-                            </stackView>
+                                <constraints>
+                                    <constraint firstItem="g0R-aY-oml" firstAttribute="trailing" secondItem="BVk-fe-YLz" secondAttribute="centerX" constant="-4" id="6d9-gV-ekb"/>
+                                    <constraint firstItem="PsF-Sq-XUD" firstAttribute="leading" secondItem="BVk-fe-YLz" secondAttribute="centerX" constant="4" id="R9p-9u-lsN"/>
+                                    <constraint firstItem="g0R-aY-oml" firstAttribute="centerY" secondItem="BVk-fe-YLz" secondAttribute="centerY" id="XfL-La-wPL"/>
+                                    <constraint firstItem="PsF-Sq-XUD" firstAttribute="centerY" secondItem="BVk-fe-YLz" secondAttribute="centerY" id="dGQ-jf-qA3"/>
+                                    <constraint firstAttribute="height" constant="50" id="uIU-Ot-FEN"/>
+                                    <constraint firstAttribute="width" constant="150" id="zol-Al-lYQ"/>
+                                </constraints>
+                            </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="c85-mM-kGe" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="PSq-F9-SLe"/>
-                            <constraint firstItem="c85-mM-kGe" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="zyO-JG-4LF"/>
+                            <constraint firstItem="RJu-Yr-WCh" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="AmS-Sk-I8M"/>
+                            <constraint firstItem="BVk-fe-YLz" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="HKi-cb-ELl"/>
+                            <constraint firstItem="RJu-Yr-WCh" firstAttribute="bottom" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" constant="-8" id="YW3-lA-6BI"/>
+                            <constraint firstItem="BVk-fe-YLz" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" constant="8" id="fnk-jv-Ik1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="remainingTimeLabel" destination="g0R-aY-oml" id="YCs-Gv-ncR"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
