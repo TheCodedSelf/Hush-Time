@@ -11,7 +11,7 @@
 		954C29011EFA2CE4005A73A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954C29001EFA2CE4005A73A4 /* ViewController.swift */; };
 		954C29031EFA2CE4005A73A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 954C29021EFA2CE4005A73A4 /* Assets.xcassets */; };
 		954C29061EFA2CE4005A73A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 954C29041EFA2CE4005A73A4 /* Main.storyboard */; };
-		954C29111EFA2CE5005A73A4 /* HushTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954C29101EFA2CE5005A73A4 /* HushTimeTests.swift */; };
+		954C291C1EFA2D3E005A73A4 /* AppOpenerCloser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954C291B1EFA2D3E005A73A4 /* AppOpenerCloser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,8 +32,8 @@
 		954C29051EFA2CE4005A73A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		954C29071EFA2CE4005A73A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		954C290C1EFA2CE5005A73A4 /* HushTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HushTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		954C29101EFA2CE5005A73A4 /* HushTimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HushTimeTests.swift; sourceTree = "<group>"; };
 		954C29121EFA2CE5005A73A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		954C291B1EFA2D3E005A73A4 /* AppOpenerCloser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppOpenerCloser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +80,7 @@
 				954C29021EFA2CE4005A73A4 /* Assets.xcassets */,
 				954C29041EFA2CE4005A73A4 /* Main.storyboard */,
 				954C29071EFA2CE4005A73A4 /* Info.plist */,
+				954C291B1EFA2D3E005A73A4 /* AppOpenerCloser.swift */,
 			);
 			path = HushTime;
 			sourceTree = "<group>";
@@ -87,7 +88,6 @@
 		954C290F1EFA2CE5005A73A4 /* HushTimeTests */ = {
 			isa = PBXGroup;
 			children = (
-				954C29101EFA2CE5005A73A4 /* HushTimeTests.swift */,
 				954C29121EFA2CE5005A73A4 /* Info.plist */,
 			);
 			path = HushTimeTests;
@@ -196,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				954C29011EFA2CE4005A73A4 /* ViewController.swift in Sources */,
+				954C291C1EFA2D3E005A73A4 /* AppOpenerCloser.swift in Sources */,
 				954C28FF1EFA2CE4005A73A4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,7 +205,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				954C29111EFA2CE5005A73A4 /* HushTimeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
