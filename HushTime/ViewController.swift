@@ -8,19 +8,25 @@
 
 import Cocoa
 
+private enum State {
+    case running
+    case notRunning
+}
+
 class ViewController: NSViewController {
 
-    @IBOutlet weak var remainingTimeLabel: NSTextField!
+    @IBOutlet private weak var timeSelector: TimeSelector!
+    @IBOutlet private weak var remainingTimeLabel: NSTextField!
     
-    private var remainingSeconds = 25 * 60 {
+    private var state: State = .notRunning {
         didSet {
-            let minutes = "\(remainingSeconds / 60)"
-            var seconds = "\(remainingSeconds % 60)"
-            let secondsValueIsOnlySingleDigit = seconds.characters.count < 2
-            if secondsValueIsOnlySingleDigit {
-                seconds = "0\(seconds)"
-            }
-            remainingTimeLabel.stringValue = "\(minutes):\(seconds)"
+            configureViewForCurrentState()
+        }
+    }
+    
+    private var remainingTime = Measurement(value: 25, unit: UnitDuration.minutes) {
+        didSet {
+            configureViewForRemainingSeconds()
         }
     }
     
@@ -36,29 +42,63 @@ class ViewController: NSViewController {
      7. Ads?
  */
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        configureViewForCurrentState()
     }
 
     @IBAction func startHushTime(_ sender: NSButton) {
+        //TODO what about when time is on 0
+        state = .running
+        
+        remainingTime = timeSelector.value
+        
+        ProcessInfo.processInfo.disableAutomaticTermination("A timer is running")
         
         hushTimeBlock = HushTimeBlock(appNames: ["Franz", "Mail", "Messages"],
-                                      durationInSeconds: 25*60,
-                                      fireOnUpdate: { [weak self] remainingSeconds in
-                                        self?.remainingSeconds = remainingSeconds
+                                      time: timeSelector.value,
+                                      fireOnUpdate: { [weak self] in
+                                        self?.remainingTime = $0
         })
         
         hushTimeBlock?.start()
     }
 
     @IBAction func stopHushTime(_ sender: NSButton) {
+        
+        ProcessInfo.processInfo.enableAutomaticTermination("The timer is complete")
         hushTimeBlock?.finish()
+        state = .notRunning
+    }
+    
+    private func configureViewForCurrentState() {
+        
+        let isRunning = state == .running
+        remainingTimeLabel.isHidden = !isRunning
+        timeSelector.isHidden = isRunning
+    }
+    
+    private func configureViewForRemainingSeconds() {
+        
+        guard remainingTime.value > 0 else {
+            state = .notRunning
+            return
+        }
+        
+        let hours = Int(remainingTime.converted(to: .hours).value)
+        let minutes = Int(remainingTime.converted(to: .minutes).value
+            .truncatingRemainder(dividingBy: 60))
+        let seconds = Int(remainingTime.converted(to: .seconds).value
+            .truncatingRemainder(dividingBy: 60))
+
+        func leftPadded(_ integer: Int) -> String {
+            let string = "\(integer)"
+            let isOnlySingleDigit = string.characters.count < 2
+            return isOnlySingleDigit ? "0\(string)" : string
+        }
+        
+        remainingTimeLabel.stringValue =
+        "\(leftPadded(hours)):\(leftPadded(minutes)):\(leftPadded(seconds))"
     }
 }
 

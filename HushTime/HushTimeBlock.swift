@@ -11,40 +11,42 @@ import AppKit
 
 class HushTimeBlock {
     
-    typealias RemainingSeconds = Int
-    
     private let appNames: [String]
-    private let updateStatus: (RemainingSeconds) -> ()
-    private var secondsRemaining: Int
+    private let updateStatus: (Time) -> ()
+    private var finishTime: Date
+    private var timer: Timer?
     
     init(appNames: [String],
-         durationInSeconds: Int,
-         fireOnUpdate:@escaping (RemainingSeconds) -> ()) {
+         time: Time,
+         fireOnUpdate:@escaping (Time) -> ()) {
+        
         self.appNames = appNames
-        self.secondsRemaining = durationInSeconds
         self.updateStatus = fireOnUpdate
+        
+        let durationInSeconds: TimeInterval = time.converted(to: .seconds).value
+        self.finishTime = Date(timeIntervalSinceNow: durationInSeconds)
     }
     
     func start(with appOpenerCloser: AppOpenerCloser = AppOpenerCloserImpl()) {
         
         killApps()
         
-        _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+        timer = Timer.scheduledTimer(withTimeInterval: 0.9, repeats: true) { timer in
             
-            if self.secondsRemaining < 1 {
+            let secondsRemaining =  self.finishTime.timeIntervalSince(Date())
+            if secondsRemaining < 1 {
                 timer.invalidate()
                 self.launchApps()
-                return
+            } else {
+                self.updateStatus(Measurement(value: secondsRemaining, unit: UnitDuration.seconds))
             }
-            self.secondsRemaining -= 1
-            self.updateStatus(self.secondsRemaining)
         }
     }
     
     func finish(with appOpenerCloser: AppOpenerCloser = AppOpenerCloserImpl()) {
-        secondsRemaining = 0
-        updateStatus(secondsRemaining)
+        timer?.invalidate()
         launchApps(with: appOpenerCloser)
+        updateStatus(Measurement(value: 0, unit: UnitDuration.seconds))
     }
     
     private func killApps(with appOpenerCloser: AppOpenerCloser = AppOpenerCloserImpl()) {

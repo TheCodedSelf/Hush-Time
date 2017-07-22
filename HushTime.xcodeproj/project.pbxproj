@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		954B25C81F1B952400678256 /* TimeSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 954B25C71F1B952400678256 /* TimeSelector.xib */; };
+		954B25CA1F1B954400678256 /* TimeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B25C91F1B954400678256 /* TimeSelector.swift */; };
 		954C28FF1EFA2CE4005A73A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954C28FE1EFA2CE4005A73A4 /* AppDelegate.swift */; };
 		954C29011EFA2CE4005A73A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954C29001EFA2CE4005A73A4 /* ViewController.swift */; };
 		954C29031EFA2CE4005A73A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 954C29021EFA2CE4005A73A4 /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		954B25C71F1B952400678256 /* TimeSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeSelector.xib; sourceTree = "<group>"; };
+		954B25C91F1B954400678256 /* TimeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSelector.swift; sourceTree = "<group>"; };
 		954C28FB1EFA2CE4005A73A4 /* HushTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HushTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		954C28FE1EFA2CE4005A73A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		954C29001EFA2CE4005A73A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +40,7 @@
 		954C29121EFA2CE5005A73A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		954C291B1EFA2D3E005A73A4 /* AppOpenerCloser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppOpenerCloser.swift; sourceTree = "<group>"; };
 		954C29211EFA3A69005A73A4 /* HushTimeBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HushTimeBlock.swift; sourceTree = "<group>"; };
+		95A6690B1F1FB626001B2F3E /* HushTime-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HushTime-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +89,9 @@
 				954C29071EFA2CE4005A73A4 /* Info.plist */,
 				954C291B1EFA2D3E005A73A4 /* AppOpenerCloser.swift */,
 				954C29211EFA3A69005A73A4 /* HushTimeBlock.swift */,
+				954B25C71F1B952400678256 /* TimeSelector.xib */,
+				954B25C91F1B954400678256 /* TimeSelector.swift */,
+				95A6690B1F1FB626001B2F3E /* HushTime-Bridging-Header.h */,
 			);
 			path = HushTime;
 			sourceTree = "<group>";
@@ -146,6 +154,7 @@
 				TargetAttributes = {
 					954C28FA1EFA2CE4005A73A4 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					954C290B1EFA2CE5005A73A4 = {
@@ -180,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				954C29031EFA2CE4005A73A4 /* Assets.xcassets in Resources */,
+				954B25C81F1B952400678256 /* TimeSelector.xib in Resources */,
 				954C29061EFA2CE4005A73A4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,6 +211,7 @@
 				954C29221EFA3A69005A73A4 /* HushTimeBlock.swift in Sources */,
 				954C29011EFA2CE4005A73A4 /* ViewController.swift in Sources */,
 				954C291C1EFA2D3E005A73A4 /* AppOpenerCloser.swift in Sources */,
+				954B25CA1F1B954400678256 /* TimeSelector.swift in Sources */,
 				954C28FF1EFA2CE4005A73A4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,11 +341,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = HushTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thecodedself.HushTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HushTime/HushTime-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -343,11 +357,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = HushTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thecodedself.HushTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HushTime/HushTime-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -401,6 +417,7 @@
 				954C29171EFA2CE5005A73A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		954C29181EFA2CE5005A73A4 /* Build configuration list for PBXNativeTarget "HushTimeTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +426,7 @@
 				954C291A1EFA2CE5005A73A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

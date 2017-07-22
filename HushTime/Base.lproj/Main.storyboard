@@ -698,10 +698,13 @@
                                 </connections>
                             </button>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="BVk-fe-YLz" userLabel="Time and Stop">
-                                <rect key="frame" x="165" y="77" width="150" height="50"/>
+                                <rect key="frame" x="115" y="77" width="250" height="50"/>
                                 <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="iOe-K9-Uh9" customClass="TimeSelector" customModule="HushTime" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="121" height="50"/>
+                                    </customView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0R-aY-oml">
-                                        <rect key="frame" x="33" y="17" width="40" height="17"/>
+                                        <rect key="frame" x="83" y="17" width="40" height="17"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="25:00" id="1aD-cu-0Um">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -709,7 +712,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PsF-Sq-XUD">
-                                        <rect key="frame" x="73" y="8" width="69" height="32"/>
+                                        <rect key="frame" x="123" y="8" width="69" height="32"/>
                                         <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bKm-Lf-n0O">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -720,12 +723,16 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="iOe-K9-Uh9" firstAttribute="centerY" secondItem="BVk-fe-YLz" secondAttribute="centerY" id="2aZ-Hm-ddS"/>
+                                    <constraint firstItem="iOe-K9-Uh9" firstAttribute="trailing" secondItem="BVk-fe-YLz" secondAttribute="centerX" constant="-4" id="5fs-Qs-hfU"/>
                                     <constraint firstItem="g0R-aY-oml" firstAttribute="trailing" secondItem="BVk-fe-YLz" secondAttribute="centerX" constant="-4" id="6d9-gV-ekb"/>
+                                    <constraint firstItem="iOe-K9-Uh9" firstAttribute="height" secondItem="BVk-fe-YLz" secondAttribute="height" id="Iab-Z4-mUn"/>
                                     <constraint firstItem="PsF-Sq-XUD" firstAttribute="leading" secondItem="BVk-fe-YLz" secondAttribute="centerX" constant="4" id="R9p-9u-lsN"/>
                                     <constraint firstItem="g0R-aY-oml" firstAttribute="centerY" secondItem="BVk-fe-YLz" secondAttribute="centerY" id="XfL-La-wPL"/>
                                     <constraint firstItem="PsF-Sq-XUD" firstAttribute="centerY" secondItem="BVk-fe-YLz" secondAttribute="centerY" id="dGQ-jf-qA3"/>
+                                    <constraint firstItem="iOe-K9-Uh9" firstAttribute="leading" secondItem="BVk-fe-YLz" secondAttribute="leading" id="jCo-Yn-lwK"/>
                                     <constraint firstAttribute="height" constant="50" id="uIU-Ot-FEN"/>
-                                    <constraint firstAttribute="width" constant="150" id="zol-Al-lYQ"/>
+                                    <constraint firstAttribute="width" constant="250" id="zol-Al-lYQ"/>
                                 </constraints>
                             </customView>
                         </subviews>
@@ -738,6 +745,7 @@
                     </view>
                     <connections>
                         <outlet property="remainingTimeLabel" destination="g0R-aY-oml" id="YCs-Gv-ncR"/>
+                        <outlet property="timeSelector" destination="iOe-K9-Uh9" id="KgL-LW-nWK"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
