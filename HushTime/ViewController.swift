@@ -13,14 +13,27 @@ private enum State {
     case notRunning
 }
 
+struct SelectedApps {
+    
+    var apps: [String] {
+        get {
+            return NSOrderedSet(array: unorderedApps).array as? [String] ?? unorderedApps
+        }
+        set {
+            unorderedApps = newValue.sorted()
+        }
+    }
+    
+    private var unorderedApps = [String]()
+}
+
 class ViewController: NSViewController {
 
     @IBOutlet private weak var timeSelector: TimeSelector!
     @IBOutlet private weak var remainingTimeLabel: NSTextField!
     @IBOutlet private weak var selectedAppsSourceList: NSOutlineView!
-
-    //Store this in an ordered set? Maybe use ordered set on will set? Maybe have a separate ordered set var and when that's updated then update this array?
-    fileprivate var selectedApps = [String]() {
+    
+    fileprivate var selectedApps = SelectedApps() {
         didSet {
             selectedAppsSourceList.reloadData()
         }
@@ -75,7 +88,7 @@ class ViewController: NSViewController {
         
         ProcessInfo.processInfo.disableAutomaticTermination("A timer is running")
         
-        hushTimeBlock = HushTimeBlock(appNames: selectedApps,
+        hushTimeBlock = HushTimeBlock(appNames: selectedApps.apps,
                                       time: timeSelector.value,
                                       fireOnUpdate: { [weak self] in
                                         self?.remainingTime = $0
@@ -92,13 +105,13 @@ class ViewController: NSViewController {
     }
     
     @IBAction func addAppClicked(_ sender: Any) {
-        AppNamesPicker().pickAppNames{ self.selectedApps = $0 }
+        AppNamesPicker().pickAppNames{ self.selectedApps.apps += $0 }
     }
     
     @IBAction func removeAppClicked(_ sender: Any) {
         
-        selectedApps = selectedApps.filter {
-            !self.selectedAppsSourceList.isRowSelected(self.selectedApps.index(of: $0) ?? -1)
+        selectedApps.apps = selectedApps.apps.filter {
+            !self.selectedAppsSourceList.isRowSelected(self.selectedApps.apps.index(of: $0) ?? -1)
         }
         selectedAppsSourceList.deselectAll(self)
     }
@@ -143,11 +156,11 @@ extension ViewController: NSOutlineViewDelegate {
 extension ViewController: NSOutlineViewDataSource {
     
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        return selectedApps.count
+        return selectedApps.apps.count
     }
     
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        return selectedApps[index]
+        return selectedApps.apps[index]
     }
     
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
