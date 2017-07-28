@@ -17,6 +17,14 @@ class ViewController: NSViewController {
 
     @IBOutlet private weak var timeSelector: TimeSelector!
     @IBOutlet private weak var remainingTimeLabel: NSTextField!
+    @IBOutlet private weak var selectedAppsSourceList: NSOutlineView!
+
+    //Store this in an ordered set? Maybe use ordered set on will set? Maybe have a separate ordered set var and when that's updated then update this array?
+    fileprivate var selectedApps = [String]() {
+        didSet {
+            selectedAppsSourceList.reloadData()
+        }
+    }
     
     private var state: State = .notRunning {
         didSet {
@@ -39,15 +47,27 @@ class ViewController: NSViewController {
      4. change timer in UI
      5. file finder
      6. notification
-     7. Ads?
+     7. Pretty the UI
+     8. Icons next to selected apps
  */
     
     override func viewWillAppear() {
         super.viewWillAppear()
         configureViewForCurrentState()
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        selectedAppsSourceList.dataSource = self
+        selectedAppsSourceList.delegate = self
+    }
 
     @IBAction func startHushTime(_ sender: NSButton) {
+        startHushTimeBlock()
+    }
+    
+    private func startHushTimeBlock() {
+        
         //TODO what about when time is on 0
         state = .running
         
@@ -55,7 +75,7 @@ class ViewController: NSViewController {
         
         ProcessInfo.processInfo.disableAutomaticTermination("A timer is running")
         
-        hushTimeBlock = HushTimeBlock(appNames: ["Franz", "Mail", "Messages"],
+        hushTimeBlock = HushTimeBlock(appNames: selectedApps,
                                       time: timeSelector.value,
                                       fireOnUpdate: { [weak self] in
                                         self?.remainingTime = $0
@@ -71,11 +91,24 @@ class ViewController: NSViewController {
         state = .notRunning
     }
     
+    @IBAction func addAppClicked(_ sender: Any) {
+        AppNamesPicker().pickAppNames{ self.selectedApps = $0 }
+    }
+    
+    @IBAction func removeAppClicked(_ sender: Any) {
+        
+        selectedApps = selectedApps.filter {
+            !self.selectedAppsSourceList.isRowSelected(self.selectedApps.index(of: $0) ?? -1)
+        }
+        selectedAppsSourceList.deselectAll(self)
+    }
+
     private func configureViewForCurrentState() {
         
         let isRunning = state == .running
         remainingTimeLabel.isHidden = !isRunning
         timeSelector.isHidden = isRunning
+        selectedAppsSourceList.allowsMultipleSelection = true
     }
     
     private func configureViewForRemainingSeconds() {
@@ -102,3 +135,27 @@ class ViewController: NSViewController {
     }
 }
 
+extension ViewController: NSOutlineViewDelegate {
+    func outlineView(_ outlineView: NSOutlineView, shouldEdit tableColumn: NSTableColumn?, item: Any) -> Bool {
+        return false
+    }
+}
+extension ViewController: NSOutlineViewDataSource {
+    
+    func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
+        return selectedApps.count
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
+        return selectedApps[index]
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
+        return false
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, objectValueFor tableColumn: NSTableColumn?, byItem item: Any?) -> Any? {
+        return item
+    }
+    
+}
