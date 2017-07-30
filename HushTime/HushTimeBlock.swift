@@ -31,12 +31,11 @@ class HushTimeBlock {
         
         killApps()
         
-        timer = Timer.scheduledTimer(withTimeInterval: 0.9, repeats: true) { timer in
+        timer = Timer.scheduledTimer(withTimeInterval: 0.9, repeats: true) { _ in
             
             let secondsRemaining =  self.finishTime.timeIntervalSince(Date())
             if secondsRemaining < 1 {
-                timer.invalidate()
-                self.launchApps()
+                self.finish()
             } else {
                 self.updateStatus(Measurement(value: secondsRemaining, unit: UnitDuration.seconds))
             }

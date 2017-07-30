@@ -37,11 +37,12 @@ class ViewController: NSViewController {
     @IBOutlet private weak var timeSelector: TimeSelector!
     @IBOutlet private weak var remainingTimeLabel: NSTextField!
     @IBOutlet private weak var selectedAppsSourceList: NSOutlineView!
+    @IBOutlet weak var startButton: NSButton!
     
     fileprivate var selectedApps = SelectedApps() {
         didSet {
             selectedAppsSourceList.reloadData()
-            UserDefaults.standard.set(selectedApps.apps, forKey: Keys.selectedApps)
+            startButton.isEnabled = !selectedApps.apps.isEmpty
         }
     }
     
@@ -59,9 +60,15 @@ class ViewController: NSViewController {
     
     private var hushTimeBlock: HushTimeBlock?
     /*
-     - notification
      - Pretty the UI
+     - when no apps are selected show empty state
+     - little tomato icon to start pomodoro
      - Icons next to selected apps
+     - little ding sound rather than default notification
+     - include proper app name on window
+     - get an icon
+     - only reopen apps that were open at the time of starting the time block
+     
  */
     
     override func viewWillAppear() {
@@ -77,29 +84,33 @@ class ViewController: NSViewController {
     private func firstTimeSetup() {
         selectedAppsSourceList.dataSource = self
         selectedAppsSourceList.delegate = self
-        let userDefaults = UserDefaults.standard
-        if let selectedApps = userDefaults.stringArray(forKey: Keys.selectedApps) {
+        
+        if let selectedApps = UserDefaults.standard.stringArray(forKey: Keys.selectedApps) {
             self.selectedApps.apps = selectedApps
         }
-        let time = userDefaults.double(forKey: Keys.selectedTime)
+        let time = UserDefaults.standard.double(forKey: Keys.selectedTime)
         remainingTime = Measurement(value: time, unit: UnitDuration.seconds)
         timeSelector.populate(with: remainingTime)
         
     }
 
     @IBAction func startHushTime(_ sender: NSButton) {
+        persistValues()
         startHushTimeBlock()
     }
     
-    private func startHushTimeBlock() {
-        
-        //TODO what about when time is on 0
-        state = .running
+    private func persistValues() {
         
         remainingTime = timeSelector.value
         UserDefaults.standard.set(
             timeSelector.value.converted(to: .seconds).value,
             forKey: Keys.selectedTime)
+        UserDefaults.standard.set(selectedApps.apps, forKey: Keys.selectedApps)
+    }
+    
+    private func startHushTimeBlock() {
+
+        state = .running
         
         ProcessInfo.processInfo.disableAutomaticTermination("A timer is running")
         
@@ -142,7 +153,7 @@ class ViewController: NSViewController {
     private func configureViewForRemainingSeconds() {
         
         guard remainingTime.value > 0 else {
-            state = .notRunning
+            handleFinish()
             return
         }
         
@@ -160,6 +171,18 @@ class ViewController: NSViewController {
         
         remainingTimeLabel.stringValue =
         "\(leftPadded(hours)):\(leftPadded(minutes)):\(leftPadded(seconds))"
+    }
+    
+    private func handleFinish() {
+        state = .notRunning
+        showNotification(text: "Time block finished")
+    }
+    
+    private func showNotification(text: String) {
+        let notification = NSUserNotification()
+        notification.informativeText = text
+        notification.soundName = NSUserNotificationDefaultSoundName
+        NSUserNotificationCenter.default.deliver(notification)
     }
 }
 

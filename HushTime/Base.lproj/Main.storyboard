@@ -828,6 +828,7 @@
                     <connections>
                         <outlet property="remainingTimeLabel" destination="g0R-aY-oml" id="YCs-Gv-ncR"/>
                         <outlet property="selectedAppsSourceList" destination="Ymb-Qu-nXC" id="yYA-C5-2dh"/>
+                        <outlet property="startButton" destination="RJu-Yr-WCh" id="fWR-wU-e1H"/>
                         <outlet property="timeSelector" destination="iOe-K9-Uh9" id="KgL-LW-nWK"/>
                     </connections>
                 </viewController>
