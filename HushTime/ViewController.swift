@@ -65,7 +65,6 @@ class ViewController: NSViewController {
      - little tomato icon to start pomodoro
      - Icons next to selected apps
      - little ding sound rather than default notification
-     - include proper app name on window
      - get an icon
      - only reopen apps that were open at the time of starting the time block
      
