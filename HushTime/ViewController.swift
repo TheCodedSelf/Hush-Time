@@ -8,6 +8,11 @@
 
 import Cocoa
 
+private struct Keys {
+    static let selectedApps = "selectedApps"
+    static let selectedTime = "selectedTime"
+}
+
 private enum State {
     case running
     case notRunning
@@ -36,6 +41,7 @@ class ViewController: NSViewController {
     fileprivate var selectedApps = SelectedApps() {
         didSet {
             selectedAppsSourceList.reloadData()
+            UserDefaults.standard.set(selectedApps.apps, forKey: Keys.selectedApps)
         }
     }
     
@@ -53,15 +59,9 @@ class ViewController: NSViewController {
     
     private var hushTimeBlock: HushTimeBlock?
     /*
-     1. start to kill
-     2. stop to open
-     3. timer
-     -. Show timer in ui
-     4. change timer in UI
-     5. file finder
-     6. notification
-     7. Pretty the UI
-     8. Icons next to selected apps
+     - notification
+     - Pretty the UI
+     - Icons next to selected apps
  */
     
     override func viewWillAppear() {
@@ -71,8 +71,20 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        firstTimeSetup()
+    }
+    
+    private func firstTimeSetup() {
         selectedAppsSourceList.dataSource = self
         selectedAppsSourceList.delegate = self
+        let userDefaults = UserDefaults.standard
+        if let selectedApps = userDefaults.stringArray(forKey: Keys.selectedApps) {
+            self.selectedApps.apps = selectedApps
+        }
+        let time = userDefaults.double(forKey: Keys.selectedTime)
+        remainingTime = Measurement(value: time, unit: UnitDuration.seconds)
+        timeSelector.populate(with: remainingTime)
+        
     }
 
     @IBAction func startHushTime(_ sender: NSButton) {
@@ -85,6 +97,9 @@ class ViewController: NSViewController {
         state = .running
         
         remainingTime = timeSelector.value
+        UserDefaults.standard.set(
+            timeSelector.value.converted(to: .seconds).value,
+            forKey: Keys.selectedTime)
         
         ProcessInfo.processInfo.disableAutomaticTermination("A timer is running")
         

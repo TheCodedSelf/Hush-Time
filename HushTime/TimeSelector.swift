@@ -33,15 +33,6 @@ class TimeSelector: NSView {
         return Measurement(value: Double(minuteTextField.stringValue) ?? 0, unit: UnitDuration.minutes)
     }
     
-    @IBAction func minutesChanged(_ sender: Any) {
-        minuteTextField.integerValue = minuteStepper.integerValue
-        resetIfInvalid()
-    }
-    
-    @IBAction func hoursChanged(_ sender: Any) {
-        hourTextField.integerValue = hourStepper.integerValue
-        resetIfInvalid()
-    }
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -53,9 +44,25 @@ class TimeSelector: NSView {
         loadView()
     }
     
+    func populate(with time: Measurement<UnitDuration>) {
+        minuteTextField.integerValue = Int(time.converted(to: .minutes).value) % 60
+        hourTextField.integerValue = Int(time.converted(to: .hours).value)
+        resetIfInvalid()
+    }
+    
     fileprivate func resetIfInvalid() {
         resetHourTextIfNotValidHour()
         resetMinuteTextIfNotValidMinute()
+    }
+    
+    @IBAction private func minutesChanged(_ sender: Any) {
+        minuteTextField.integerValue = minuteStepper.integerValue
+        resetIfInvalid()
+    }
+    
+    @IBAction private func hoursChanged(_ sender: Any) {
+        hourTextField.integerValue = hourStepper.integerValue
+        resetIfInvalid()
     }
     
     private func loadView() {
