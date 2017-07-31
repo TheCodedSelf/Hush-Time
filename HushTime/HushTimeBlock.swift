@@ -15,6 +15,7 @@ class HushTimeBlock {
     private let updateStatus: (Time) -> ()
     private var finishTime: Date
     private var timer: Timer?
+    private let appOpenerCloser = AppOpenerCloser()
     
     init(appNames: [String],
          time: Time,
@@ -27,7 +28,7 @@ class HushTimeBlock {
         self.finishTime = Date(timeIntervalSinceNow: durationInSeconds)
     }
     
-    func start(with appOpenerCloser: AppOpenerCloser = AppOpenerCloserImpl()) {
+    func start() {
         
         killApps()
         
@@ -42,23 +43,25 @@ class HushTimeBlock {
         }
     }
     
-    func finish(with appOpenerCloser: AppOpenerCloser = AppOpenerCloserImpl()) {
+    func finish() {
         timer?.invalidate()
-        launchApps(with: appOpenerCloser)
+        launchApps()
         updateStatus(Measurement(value: 0, unit: UnitDuration.seconds))
     }
     
-    private func killApps(with appOpenerCloser: AppOpenerCloser = AppOpenerCloserImpl()) {
+    private func killApps() {
         
         DispatchQueue.global().async {
-            self.appNames.forEach(appOpenerCloser.killApp)
+            self.appNames.forEach(self.appOpenerCloser.killApp)
         }
     }
     
-    private func launchApps(with appOpenerCloser: AppOpenerCloser = AppOpenerCloserImpl()) {
+    private func launchApps() {
         
         DispatchQueue.global().async {
-            self.appNames.forEach { appOpenerCloser.launchApp(named: $0, in: NSWorkspace.shared()) }
+            self.appNames.forEach {
+                self.appOpenerCloser.launchApp(named: $0, in: NSWorkspace.shared())
+            }
         }
     }
 }

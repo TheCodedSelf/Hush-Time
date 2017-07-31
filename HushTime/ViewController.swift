@@ -60,13 +60,12 @@ class ViewController: NSViewController {
     
     private var hushTimeBlock: HushTimeBlock?
     /*
-     - Pretty the UI
      - when no apps are selected show empty state
      - little tomato icon to start pomodoro
-     - Icons next to selected apps
      - little ding sound rather than default notification
      - get an icon
-     - only reopen apps that were open at the time of starting the time block
+     - Icons next to selected apps
+     - Pretty the UI
      
  */
     
@@ -174,6 +173,7 @@ class ViewController: NSViewController {
     
     private func handleFinish() {
         state = .notRunning
+        //TODO shouldn't show if cancelled by self
         showNotification(text: "Time block finished")
     }
     
