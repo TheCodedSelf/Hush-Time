@@ -34,15 +34,20 @@ struct SelectedApps {
 
 class ViewController: NSViewController {
 
+    @IBOutlet private weak var emptyStateHeaderLabel: NSTextField!
+    @IBOutlet private weak var emptyStateValueLabel: NSTextField!
     @IBOutlet private weak var timeSelector: TimeSelector!
     @IBOutlet private weak var remainingTimeLabel: NSTextField!
     @IBOutlet private weak var selectedAppsSourceList: NSOutlineView!
     @IBOutlet weak var startButton: NSButton!
+    private var shouldPresentNotificationOnFinish = true
     
     fileprivate var selectedApps = SelectedApps() {
         didSet {
             selectedAppsSourceList.reloadData()
             startButton.isEnabled = !selectedApps.apps.isEmpty
+            if selectedApps.apps.isEmpty { showEmptyState() }
+            else { hideEmptyState() }
         }
     }
     
@@ -60,7 +65,7 @@ class ViewController: NSViewController {
     
     private var hushTimeBlock: HushTimeBlock?
     /*
-     - when no apps are selected show empty state
+     - Add a title to the selected apps (like the empty state title)
      - little tomato icon to start pomodoro
      - little ding sound rather than default notification
      - get an icon
@@ -95,6 +100,7 @@ class ViewController: NSViewController {
     @IBAction func startHushTime(_ sender: NSButton) {
         persistValues()
         startHushTimeBlock()
+        shouldPresentNotificationOnFinish = true
     }
     
     private func persistValues() {
@@ -123,6 +129,7 @@ class ViewController: NSViewController {
 
     @IBAction func stopHushTime(_ sender: NSButton) {
         
+        shouldPresentNotificationOnFinish = false
         ProcessInfo.processInfo.enableAutomaticTermination("The timer is complete")
         hushTimeBlock?.finish()
         state = .notRunning
@@ -173,8 +180,9 @@ class ViewController: NSViewController {
     
     private func handleFinish() {
         state = .notRunning
-        //TODO shouldn't show if cancelled by self
-        showNotification(text: "Time block finished")
+        if shouldPresentNotificationOnFinish {
+            showNotification(text: "Time block finished")
+        }
     }
     
     private func showNotification(text: String) {
@@ -182,6 +190,16 @@ class ViewController: NSViewController {
         notification.informativeText = text
         notification.soundName = NSUserNotificationDefaultSoundName
         NSUserNotificationCenter.default.deliver(notification)
+    }
+    
+    private func hideEmptyState() {
+        emptyStateValueLabel.isHidden = true
+        emptyStateHeaderLabel.isHidden = true
+    }
+    
+    private func showEmptyState() {
+        emptyStateValueLabel.isHidden = false
+        emptyStateHeaderLabel.isHidden = false
     }
 }
 

@@ -684,14 +684,14 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="HushTime" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="500" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="20"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Kw1-l1-Vpm" userLabel="Start, Stop, Time">
-                                <rect key="frame" x="250" y="0.0" width="250" height="270"/>
+                                <rect key="frame" x="250" y="0.0" width="250" height="20"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RJu-Yr-WCh">
-                                        <rect key="frame" x="90" y="173" width="70" height="32"/>
+                                        <rect key="frame" x="90" y="48" width="70" height="32"/>
                                         <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Kin-7b-W0u">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -701,7 +701,7 @@
                                         </connections>
                                     </button>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="BVk-fe-YLz" userLabel="Time and Stop">
-                                        <rect key="frame" x="0.0" y="110" width="250" height="50"/>
+                                        <rect key="frame" x="0.0" y="-15" width="250" height="50"/>
                                         <subviews>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="iOe-K9-Uh9" customClass="TimeSelector" customModule="HushTime" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="121" height="50"/>
@@ -771,14 +771,14 @@
                                     <constraint firstAttribute="trailing" secondItem="BVk-fe-YLz" secondAttribute="trailing" id="zBd-7E-vuQ"/>
                                 </constraints>
                             </customView>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lk8-hm-0fg" userLabel="Selected Apps Scroll View - Outline View">
-                                <rect key="frame" x="0.0" y="0.0" width="250" height="270"/>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="68" horizontalPageScroll="10" verticalLineScroll="68" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lk8-hm-0fg" userLabel="Selected Apps Scroll View - Outline View">
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="20"/>
                                 <clipView key="contentView" drawsBackground="NO" id="H3n-Bx-ga8" userLabel="Selected Apps Clip View">
-                                    <rect key="frame" x="1" y="1" width="248" height="268"/>
+                                    <rect key="frame" x="1" y="1" width="248" height="18"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" indentationPerLevel="16" outlineTableColumn="Cc5-Kg-t2l" id="Ymb-Qu-nXC">
-                                            <rect key="frame" x="0.0" y="0.0" width="248" height="268"/>
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="68" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="Cc5-Kg-t2l" id="Ymb-Qu-nXC">
+                                            <rect key="frame" x="0.0" y="0.0" width="248" height="18"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="0.0"/>
                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -811,6 +811,22 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxC-Qw-yZF" userLabel="No Apps Description Label">
+                                <rect key="frame" x="204" y="2" width="92" height="17"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Select some apps that you'd like to remain quiet for your Hush Time" id="xZO-af-98M">
+                                    <font key="font" metaFont="system" size="12"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dk-U1-rjq" userLabel="No Apps Label">
+                                <rect key="frame" x="6" y="-18" width="246" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="No Apps Selected" id="MRa-Kc-i2b">
+                                    <font key="font" metaFont="systemBold" size="18"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Kw1-l1-Vpm" secondAttribute="trailing" id="4K9-hb-eoN"/>
@@ -818,14 +834,23 @@
                             <constraint firstItem="Kw1-l1-Vpm" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="6yv-1G-Ray"/>
                             <constraint firstItem="iZ5-Bg-28P" firstAttribute="bottom" secondItem="Lk8-hm-0fg" secondAttribute="bottom" id="8AE-A5-3I1"/>
                             <constraint firstAttribute="bottom" secondItem="Kw1-l1-Vpm" secondAttribute="bottom" id="BEq-Z7-gbr"/>
+                            <constraint firstItem="7dk-U1-rjq" firstAttribute="leading" secondItem="Lk8-hm-0fg" secondAttribute="leading" constant="8" id="CMc-CH-Al6"/>
                             <constraint firstItem="Lk8-hm-0fg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Px3-EY-Heo"/>
+                            <constraint firstItem="7dk-U1-rjq" firstAttribute="trailing" secondItem="Lk8-hm-0fg" secondAttribute="trailing" id="TjJ-Ir-cTc"/>
+                            <constraint firstItem="7dk-U1-rjq" firstAttribute="top" secondItem="Lk8-hm-0fg" secondAttribute="top" constant="16" id="W8P-h7-3o0"/>
                             <constraint firstItem="Kw1-l1-Vpm" firstAttribute="leading" secondItem="Lk8-hm-0fg" secondAttribute="trailing" id="aN2-D8-gjx"/>
+                            <constraint firstItem="cxC-Qw-yZF" firstAttribute="centerX" secondItem="Lk8-hm-0fg" secondAttribute="centerX" id="gDf-pV-Nm5"/>
+                            <constraint firstItem="cxC-Qw-yZF" firstAttribute="leading" secondItem="Lk8-hm-0fg" secondAttribute="leading" constant="16" id="hS1-uN-u7C"/>
                             <constraint firstAttribute="bottom" secondItem="Lk8-hm-0fg" secondAttribute="bottom" id="iLb-2g-7zr"/>
                             <constraint firstItem="Lk8-hm-0fg" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="ipO-oU-LFd"/>
+                            <constraint firstItem="cxC-Qw-yZF" firstAttribute="trailing" secondItem="Lk8-hm-0fg" secondAttribute="trailing" constant="-16" id="mQf-ll-1eX"/>
+                            <constraint firstItem="cxC-Qw-yZF" firstAttribute="centerY" secondItem="Lk8-hm-0fg" secondAttribute="centerY" id="y22-CN-YxU"/>
                             <constraint firstItem="Kw1-l1-Vpm" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="zYk-pj-AHY"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emptyStateHeaderLabel" destination="7dk-U1-rjq" id="1ET-sJ-ZL5"/>
+                        <outlet property="emptyStateValueLabel" destination="cxC-Qw-yZF" id="51Y-0s-oS1"/>
                         <outlet property="remainingTimeLabel" destination="g0R-aY-oml" id="YCs-Gv-ncR"/>
                         <outlet property="selectedAppsSourceList" destination="Ymb-Qu-nXC" id="yYA-C5-2dh"/>
                         <outlet property="startButton" destination="RJu-Yr-WCh" id="fWR-wU-e1H"/>
