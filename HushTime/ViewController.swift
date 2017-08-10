@@ -34,8 +34,9 @@ struct SelectedApps {
 
 class ViewController: NSViewController {
 
-    @IBOutlet private weak var emptyStateHeaderLabel: NSTextField!
-    @IBOutlet private weak var emptyStateValueLabel: NSTextField!
+    @IBOutlet weak var tableHeaderView: NSTableHeaderView!
+    @IBOutlet private weak var selectedAppsHeaderLabel: NSTextField!
+    @IBOutlet private weak var emptyStateLabel: NSTextField!
     @IBOutlet private weak var timeSelector: TimeSelector!
     @IBOutlet private weak var remainingTimeLabel: NSTextField!
     @IBOutlet private weak var selectedAppsSourceList: NSOutlineView!
@@ -84,9 +85,16 @@ class ViewController: NSViewController {
         firstTimeSetup()
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
     private func firstTimeSetup() {
+        
+        selectedAppsSourceList.headerView = tableHeaderView
         selectedAppsSourceList.dataSource = self
         selectedAppsSourceList.delegate = self
+        selectedAppsSourceList.reloadData()
         
         if let selectedApps = UserDefaults.standard.stringArray(forKey: Keys.selectedApps) {
             self.selectedApps.apps = selectedApps
@@ -193,13 +201,13 @@ class ViewController: NSViewController {
     }
     
     private func hideEmptyState() {
-        emptyStateValueLabel.isHidden = true
-        emptyStateHeaderLabel.isHidden = true
+        emptyStateLabel.isHidden = true
+        selectedAppsHeaderLabel.stringValue = "Selected Apps"
     }
     
     private func showEmptyState() {
-        emptyStateValueLabel.isHidden = false
-        emptyStateHeaderLabel.isHidden = false
+        emptyStateLabel.isHidden = false
+        selectedAppsHeaderLabel.stringValue = "No Apps Selected"
     }
 }
 
