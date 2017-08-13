@@ -38,7 +38,7 @@ class HushTimeBlock {
             if secondsRemaining < 1 {
                 self.finish()
             } else {
-                self.updateStatus(Measurement(value: secondsRemaining, unit: UnitDuration.seconds))
+                self.updateStatus(Time(value: secondsRemaining, unit: UnitDuration.seconds))
             }
         }
     }
@@ -46,7 +46,7 @@ class HushTimeBlock {
     func finish() {
         timer?.invalidate()
         launchApps()
-        updateStatus(Measurement(value: 0, unit: UnitDuration.seconds))
+        updateStatus(Time(value: 0, unit: UnitDuration.seconds))
     }
     
     private func killApps() {

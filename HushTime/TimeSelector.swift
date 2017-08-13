@@ -25,12 +25,12 @@ class TimeSelector: NSView {
     }
     
     private var hours: Time {
-        return Measurement(value: Double(hourTextField.stringValue) ?? 0, unit: UnitDuration.hours)
+        return Time(value: Double(hourTextField.stringValue) ?? 0, unit: UnitDuration.hours)
     }
     
     
     private var minutes: Time {
-        return Measurement(value: Double(minuteTextField.stringValue) ?? 0, unit: UnitDuration.minutes)
+        return Time(value: Double(minuteTextField.stringValue) ?? 0, unit: UnitDuration.minutes)
     }
     
     
@@ -44,7 +44,7 @@ class TimeSelector: NSView {
         loadView()
     }
     
-    func populate(with time: Measurement<UnitDuration>) {
+    func populate(with time: Time) {
         minuteTextField.integerValue = Int(time.converted(to: .minutes).value) % 60
         hourTextField.integerValue = Int(time.converted(to: .hours).value)
         resetIfInvalid()

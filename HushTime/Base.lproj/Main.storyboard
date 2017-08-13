@@ -4,6 +4,7 @@
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -687,6 +688,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="500" height="281"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lk8-hm-0fg" userLabel="Selected Apps Scroll View - Outline View">
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="281"/>
+                                <clipView key="contentView" drawsBackground="NO" id="H3n-Bx-ga8" userLabel="Selected Apps Clip View">
+                                    <rect key="frame" x="1" y="1" width="248" height="279"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="Cc5-Kg-t2l" id="Ymb-Qu-nXC">
+                                            <rect key="frame" x="0.0" y="0.0" width="248" height="279"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <size key="intercellSpacing" width="3" height="0.0"/>
+                                            <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableColumns>
+                                                <tableColumn width="245" minWidth="16" maxWidth="1000" id="Cc5-Kg-t2l">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="u1F-nu-R5D">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                </tableColumn>
+                                            </tableColumns>
+                                        </outlineView>
+                                    </subviews>
+                                    <nil key="backgroundColor"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="XuV-YN-a5Q">
+                                    <rect key="frame" x="1" y="119" width="238" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="oLB-qg-BxQ">
+                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="guh-WW-uee" customClass="NSTableHeaderView">
+                                <rect key="frame" x="0.0" y="239" width="250" height="42"/>
+                            </customView>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxC-Qw-yZF" userLabel="No Apps Description Label">
+                                <rect key="frame" x="14" y="125" width="222" height="32"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Select some apps that you'd like to remain quiet for your Hush Time" id="xZO-af-98M">
+                                    <font key="font" metaFont="cellTitle"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dk-U1-rjq" userLabel="Selected Apps Header Label">
+                                <rect key="frame" x="8" y="249" width="158" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="No Apps Selected" id="MRa-Kc-i2b">
+                                    <font key="font" metaFont="systemBold" size="18"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Kw1-l1-Vpm" userLabel="Start, Stop, Time">
                                 <rect key="frame" x="250" y="0.0" width="250" height="281"/>
                                 <subviews>
@@ -758,78 +818,35 @@
                                             <action selector="removeAppClicked:" target="XfG-lQ-9wD" id="xSo-2g-iFc"/>
                                         </connections>
                                     </button>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="F3v-Fe-i0U" userLabel="Pomidoro Button">
+                                        <rect key="frame" x="32" y="173" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="VPK-Rr-Vke"/>
+                                            <constraint firstAttribute="width" secondItem="F3v-Fe-i0U" secondAttribute="height" multiplier="1:1" id="uPU-kt-MEH"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Pomidoro" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="tcn-xF-add">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="startPomodoro:" target="XfG-lQ-9wD" id="i0p-yu-sPK"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="RJu-Yr-WCh" firstAttribute="centerX" secondItem="Kw1-l1-Vpm" secondAttribute="centerX" id="GGl-1W-YNI"/>
                                     <constraint firstItem="3Pb-ao-aww" firstAttribute="leading" secondItem="iZ5-Bg-28P" secondAttribute="trailing" id="GbL-4v-wQm"/>
                                     <constraint firstItem="iZ5-Bg-28P" firstAttribute="width" secondItem="3Pb-ao-aww" secondAttribute="width" id="OxC-3F-vqy"/>
                                     <constraint firstItem="BVk-fe-YLz" firstAttribute="centerY" secondItem="Kw1-l1-Vpm" secondAttribute="centerY" id="SRF-Qu-Imp"/>
+                                    <constraint firstItem="F3v-Fe-i0U" firstAttribute="centerY" secondItem="RJu-Yr-WCh" secondAttribute="centerY" id="dGp-Kj-M2I"/>
                                     <constraint firstItem="BVk-fe-YLz" firstAttribute="top" secondItem="RJu-Yr-WCh" secondAttribute="bottom" constant="20" id="fcO-It-IdQ"/>
+                                    <constraint firstItem="RJu-Yr-WCh" firstAttribute="leading" secondItem="F3v-Fe-i0U" secondAttribute="trailing" constant="16" id="pmp-rM-ybf"/>
                                     <constraint firstItem="iZ5-Bg-28P" firstAttribute="height" secondItem="3Pb-ao-aww" secondAttribute="height" id="qlk-Vr-IqM"/>
                                     <constraint firstItem="BVk-fe-YLz" firstAttribute="leading" secondItem="Kw1-l1-Vpm" secondAttribute="leading" id="tWk-kQ-iRw"/>
                                     <constraint firstItem="3Pb-ao-aww" firstAttribute="bottom" secondItem="iZ5-Bg-28P" secondAttribute="bottom" id="wco-HS-2EZ"/>
                                     <constraint firstAttribute="trailing" secondItem="BVk-fe-YLz" secondAttribute="trailing" id="zBd-7E-vuQ"/>
                                 </constraints>
                             </customView>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lk8-hm-0fg" userLabel="Selected Apps Scroll View - Outline View">
-                                <rect key="frame" x="0.0" y="0.0" width="250" height="281"/>
-                                <clipView key="contentView" drawsBackground="NO" id="H3n-Bx-ga8" userLabel="Selected Apps Clip View">
-                                    <rect key="frame" x="1" y="1" width="248" height="279"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="Cc5-Kg-t2l" id="Ymb-Qu-nXC">
-                                            <rect key="frame" x="0.0" y="0.0" width="248" height="279"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <size key="intercellSpacing" width="3" height="0.0"/>
-                                            <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
-                                            <tableColumns>
-                                                <tableColumn width="245" minWidth="16" maxWidth="1000" id="Cc5-Kg-t2l">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="smallSystem"/>
-                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
-                                                    </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="u1F-nu-R5D">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                </tableColumn>
-                                            </tableColumns>
-                                        </outlineView>
-                                    </subviews>
-                                    <nil key="backgroundColor"/>
-                                </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="XuV-YN-a5Q">
-                                    <rect key="frame" x="1" y="119" width="238" height="15"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="oLB-qg-BxQ">
-                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                            </scrollView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="guh-WW-uee" customClass="NSTableHeaderView">
-                                <rect key="frame" x="0.0" y="233" width="250" height="48"/>
-                            </customView>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxC-Qw-yZF" userLabel="No Apps Description Label">
-                                <rect key="frame" x="14" y="125" width="222" height="32"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Select some apps that you'd like to remain quiet for your Hush Time" id="xZO-af-98M">
-                                    <font key="font" metaFont="cellTitle"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dk-U1-rjq" userLabel="Selected Apps Header Label">
-                                <rect key="frame" x="8" y="249" width="158" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="No Apps Selected" id="MRa-Kc-i2b">
-                                    <font key="font" metaFont="systemBold" size="18"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="7dk-U1-rjq" firstAttribute="leading" secondItem="guh-WW-uee" secondAttribute="leading" constant="10" id="0RJ-8O-nhe"/>
@@ -849,7 +866,7 @@
                             <constraint firstItem="guh-WW-uee" firstAttribute="trailing" secondItem="Lk8-hm-0fg" secondAttribute="trailing" id="jvC-bL-mr1"/>
                             <constraint firstItem="cxC-Qw-yZF" firstAttribute="trailing" secondItem="Lk8-hm-0fg" secondAttribute="trailing" constant="-16" id="mQf-ll-1eX"/>
                             <constraint firstItem="7dk-U1-rjq" firstAttribute="top" secondItem="guh-WW-uee" secondAttribute="top" constant="10" id="oZh-gf-hI7"/>
-                            <constraint firstItem="guh-WW-uee" firstAttribute="bottom" secondItem="7dk-U1-rjq" secondAttribute="bottom" constant="16" id="pc5-rX-4hd"/>
+                            <constraint firstItem="guh-WW-uee" firstAttribute="bottom" secondItem="7dk-U1-rjq" secondAttribute="bottom" constant="10" id="pc5-rX-4hd"/>
                             <constraint firstItem="cxC-Qw-yZF" firstAttribute="centerY" secondItem="Lk8-hm-0fg" secondAttribute="centerY" id="y22-CN-YxU"/>
                             <constraint firstItem="Kw1-l1-Vpm" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="zYk-pj-AHY"/>
                         </constraints>
@@ -872,5 +889,6 @@
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
+        <image name="Pomidoro" width="96" height="96"/>
     </resources>
 </document>

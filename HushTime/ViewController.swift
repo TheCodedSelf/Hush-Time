@@ -14,11 +14,13 @@ private struct Keys {
 }
 
 private enum State {
-    case running
+    case running(duration: Time)
     case notRunning
 }
 
-struct SelectedApps {
+private let timeOfPomodoro = Time(value: 25, unit: UnitDuration.minutes)
+
+private struct SelectedApps {
     
     var apps: [String] {
         get {
@@ -34,14 +36,16 @@ struct SelectedApps {
 
 class ViewController: NSViewController {
 
-    @IBOutlet weak var tableHeaderView: NSTableHeaderView!
+    @IBOutlet private weak var tableHeaderView: NSTableHeaderView!
     @IBOutlet private weak var selectedAppsHeaderLabel: NSTextField!
     @IBOutlet private weak var emptyStateLabel: NSTextField!
     @IBOutlet private weak var timeSelector: TimeSelector!
     @IBOutlet private weak var remainingTimeLabel: NSTextField!
     @IBOutlet private weak var selectedAppsSourceList: NSOutlineView!
-    @IBOutlet weak var startButton: NSButton!
+    @IBOutlet private weak var startButton: NSButton!
+    
     private var shouldPresentNotificationOnFinish = true
+    private var hushTimeBlock: HushTimeBlock?
     
     fileprivate var selectedApps = SelectedApps() {
         didSet {
@@ -58,21 +62,26 @@ class ViewController: NSViewController {
         }
     }
     
-    private var remainingTime = Measurement(value: 25, unit: UnitDuration.minutes) {
+    private var remainingTime = timeOfPomodoro {
         didSet {
             configureViewForRemainingSeconds()
         }
     }
     
-    private var hushTimeBlock: HushTimeBlock?
+    private var isRunning: Bool {
+        switch state {
+        case .running(duration: _):
+            return true
+        default:
+            return false
+        }
+    }
+    
     /*
-     - Add a title to the selected apps (like the empty state title)
-     - little tomato icon to start pomodoro
      - little ding sound rather than default notification
      - get an icon
      - Icons next to selected apps
      - Pretty the UI
-     
  */
     
     override func viewWillAppear() {
@@ -83,10 +92,6 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         firstTimeSetup()
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
     }
     
     private func firstTimeSetup() {
@@ -100,12 +105,22 @@ class ViewController: NSViewController {
             self.selectedApps.apps = selectedApps
         }
         let time = UserDefaults.standard.double(forKey: Keys.selectedTime)
-        remainingTime = Measurement(value: time, unit: UnitDuration.seconds)
+        remainingTime = Time(value: time, unit: UnitDuration.seconds)
         timeSelector.populate(with: remainingTime)
         
     }
 
+    @IBAction func startPomodoro(_ sender: Any) {
+        
+        timeSelector.populate(with: timeOfPomodoro)
+        start()
+    }
+    
     @IBAction func startHushTime(_ sender: NSButton) {
+        start()
+    }
+    
+    private func start() {
         persistValues()
         startHushTimeBlock()
         shouldPresentNotificationOnFinish = true
@@ -122,12 +137,14 @@ class ViewController: NSViewController {
     
     private func startHushTimeBlock() {
 
-        state = .running
+        let timeOfBlock = timeSelector.value
+        
+        state = .running(duration: timeOfBlock)
         
         ProcessInfo.processInfo.disableAutomaticTermination("A timer is running")
         
         hushTimeBlock = HushTimeBlock(appNames: selectedApps.apps,
-                                      time: timeSelector.value,
+                                      time: timeOfBlock,
                                       fireOnUpdate: { [weak self] in
                                         self?.remainingTime = $0
         })
@@ -157,7 +174,6 @@ class ViewController: NSViewController {
 
     private func configureViewForCurrentState() {
         
-        let isRunning = state == .running
         remainingTimeLabel.isHidden = !isRunning
         timeSelector.isHidden = isRunning
         selectedAppsSourceList.allowsMultipleSelection = true
@@ -187,10 +203,13 @@ class ViewController: NSViewController {
     }
     
     private func handleFinish() {
-        state = .notRunning
         if shouldPresentNotificationOnFinish {
-            showNotification(text: "Time block finished")
+            if case .running(let duration) = state {
+                let message = duration == timeOfPomodoro ? "Pomidoro finished" : "Time block finished"
+                showNotification(text: message)
+            }
         }
+        state = .notRunning
     }
     
     private func showNotification(text: String) {
