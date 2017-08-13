@@ -18,7 +18,7 @@ private enum State {
     case notRunning
 }
 
-private let timeOfPomodoro = Time(value: 25, unit: UnitDuration.minutes)
+private let timeOfPomodoro = Time(value: 25, unit: .minutes)
 
 private struct SelectedApps {
     
@@ -64,7 +64,7 @@ class ViewController: NSViewController {
     
     private var remainingTime = timeOfPomodoro {
         didSet {
-            configureViewForRemainingSeconds()
+            configureViewForRemainingTime()
         }
     }
     
@@ -105,7 +105,7 @@ class ViewController: NSViewController {
             self.selectedApps.apps = selectedApps
         }
         let time = UserDefaults.standard.double(forKey: Keys.selectedTime)
-        remainingTime = Time(value: time, unit: UnitDuration.seconds)
+        remainingTime = Time(value: time, unit: .seconds)
         timeSelector.populate(with: remainingTime)
         
     }
@@ -179,7 +179,7 @@ class ViewController: NSViewController {
         selectedAppsSourceList.allowsMultipleSelection = true
     }
     
-    private func configureViewForRemainingSeconds() {
+    private func configureViewForRemainingTime() {
         
         guard remainingTime.value > 0 else {
             handleFinish()
@@ -215,7 +215,7 @@ class ViewController: NSViewController {
     private func showNotification(text: String) {
         let notification = NSUserNotification()
         notification.informativeText = text
-        notification.soundName = NSUserNotificationDefaultSoundName
+        notification.soundName = "bell.m4a"
         NSUserNotificationCenter.default.deliver(notification)
     }
     

@@ -25,12 +25,12 @@ class TimeSelector: NSView {
     }
     
     private var hours: Time {
-        return Time(value: Double(hourTextField.stringValue) ?? 0, unit: UnitDuration.hours)
+        return Time(value: Double(hourTextField.stringValue) ?? 0, unit: .hours)
     }
     
     
     private var minutes: Time {
-        return Time(value: Double(minuteTextField.stringValue) ?? 0, unit: UnitDuration.minutes)
+        return Time(value: Double(minuteTextField.stringValue) ?? 0, unit: .minutes)
     }
     
     
