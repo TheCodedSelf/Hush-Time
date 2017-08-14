@@ -78,10 +78,8 @@ class ViewController: NSViewController {
     }
     
     /*
-     - little ding sound rather than default notification
-     - get an icon
-     - Icons next to selected apps
      - Pretty the UI
+     - Icons next to selected apps
  */
     
     override func viewWillAppear() {
