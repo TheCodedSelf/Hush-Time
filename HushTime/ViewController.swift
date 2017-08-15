@@ -77,11 +77,6 @@ class ViewController: NSViewController {
         }
     }
     
-    /*
-     - Pretty the UI
-     - Icons next to selected apps
- */
-    
     override func viewWillAppear() {
         super.viewWillAppear()
         configureViewForCurrentState()
@@ -107,7 +102,7 @@ class ViewController: NSViewController {
         timeSelector.populate(with: remainingTime)
         
     }
-
+    
     @IBAction func startPomodoro(_ sender: Any) {
         
         timeSelector.populate(with: timeOfPomodoro)
@@ -115,7 +110,29 @@ class ViewController: NSViewController {
     }
     
     @IBAction func startHushTime(_ sender: NSButton) {
+        
         start()
+    }
+    
+    
+    @IBAction private func stopHushTime(_ sender: NSButton) {
+        
+        shouldPresentNotificationOnFinish = false
+        ProcessInfo.processInfo.enableAutomaticTermination("The timer is complete")
+        hushTimeBlock?.finish()
+        state = .notRunning
+    }
+    
+    @IBAction private func addAppClicked(_ sender: Any) {
+        AppNamesPicker().pickAppNames{ self.selectedApps.apps += $0 }
+    }
+    
+    @IBAction private func removeAppClicked(_ sender: Any) {
+        
+        selectedApps.apps = selectedApps.apps.filter {
+            !self.selectedAppsSourceList.isRowSelected(self.selectedApps.apps.index(of: $0) ?? -1)
+        }
+        selectedAppsSourceList.deselectAll(self)
     }
     
     private func start() {
@@ -150,25 +167,6 @@ class ViewController: NSViewController {
         hushTimeBlock?.start()
     }
 
-    @IBAction func stopHushTime(_ sender: NSButton) {
-        
-        shouldPresentNotificationOnFinish = false
-        ProcessInfo.processInfo.enableAutomaticTermination("The timer is complete")
-        hushTimeBlock?.finish()
-        state = .notRunning
-    }
-    
-    @IBAction func addAppClicked(_ sender: Any) {
-        AppNamesPicker().pickAppNames{ self.selectedApps.apps += $0 }
-    }
-    
-    @IBAction func removeAppClicked(_ sender: Any) {
-        
-        selectedApps.apps = selectedApps.apps.filter {
-            !self.selectedAppsSourceList.isRowSelected(self.selectedApps.apps.index(of: $0) ?? -1)
-        }
-        selectedAppsSourceList.deselectAll(self)
-    }
 
     private func configureViewForCurrentState() {
         
