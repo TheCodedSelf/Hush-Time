@@ -740,11 +740,12 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iZ5-Bg-28P" userLabel="Add Button">
-                                <rect key="frame" x="208" y="101" width="19" height="21"/>
+                                <rect key="frame" x="196" y="99" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="iZ5-Bg-28P" secondAttribute="height" id="EyQ-Xz-Him"/>
+                                    <constraint firstAttribute="height" constant="24" id="rtV-AM-9r5"/>
                                 </constraints>
-                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="S3R-nN-jhl">
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="Plus" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="S3R-nN-jhl">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -753,8 +754,8 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3Pb-ao-aww" userLabel="Remove Button">
-                                <rect key="frame" x="229" y="101" width="19" height="21"/>
-                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="StH-JA-12t">
+                                <rect key="frame" x="222" y="99" width="24" height="24"/>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="Minus" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="StH-JA-12t">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -773,16 +774,6 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Kw1-l1-Vpm" userLabel="Start, Stop, Time">
                                 <rect key="frame" x="250" y="0.0" width="250" height="132"/>
                                 <subviews>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RJu-Yr-WCh">
-                                        <rect key="frame" x="90" y="104" width="70" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Kin-7b-W0u">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="startHushTime:" target="XfG-lQ-9wD" id="INB-Q2-wVY"/>
-                                        </connections>
-                                    </button>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="BVk-fe-YLz" userLabel="Time and Stop">
                                         <rect key="frame" x="0.0" y="41" width="250" height="50"/>
                                         <subviews>
@@ -797,32 +788,20 @@
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PsF-Sq-XUD">
-                                                <rect key="frame" x="123" y="7" width="69" height="32"/>
-                                                <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bKm-Lf-n0O">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="stopHushTime:" target="XfG-lQ-9wD" id="sKX-MH-eLZ"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="iOe-K9-Uh9" firstAttribute="centerY" secondItem="BVk-fe-YLz" secondAttribute="centerY" id="2aZ-Hm-ddS"/>
                                             <constraint firstItem="iOe-K9-Uh9" firstAttribute="trailing" secondItem="BVk-fe-YLz" secondAttribute="centerX" constant="-4" id="5fs-Qs-hfU"/>
                                             <constraint firstItem="g0R-aY-oml" firstAttribute="trailing" secondItem="BVk-fe-YLz" secondAttribute="centerX" constant="-4" id="6d9-gV-ekb"/>
                                             <constraint firstItem="iOe-K9-Uh9" firstAttribute="height" secondItem="BVk-fe-YLz" secondAttribute="height" id="Iab-Z4-mUn"/>
-                                            <constraint firstItem="PsF-Sq-XUD" firstAttribute="leading" secondItem="BVk-fe-YLz" secondAttribute="centerX" constant="4" id="R9p-9u-lsN"/>
                                             <constraint firstItem="g0R-aY-oml" firstAttribute="centerY" secondItem="BVk-fe-YLz" secondAttribute="centerY" id="XfL-La-wPL"/>
-                                            <constraint firstItem="PsF-Sq-XUD" firstAttribute="centerY" secondItem="BVk-fe-YLz" secondAttribute="centerY" id="dGQ-jf-qA3"/>
                                             <constraint firstItem="iOe-K9-Uh9" firstAttribute="leading" secondItem="BVk-fe-YLz" secondAttribute="leading" id="jCo-Yn-lwK"/>
                                             <constraint firstAttribute="height" constant="50" id="uIU-Ot-FEN"/>
                                             <constraint firstAttribute="width" constant="250" id="zol-Al-lYQ"/>
                                         </constraints>
                                     </customView>
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="F3v-Fe-i0U" userLabel="Pomidoro Button">
-                                        <rect key="frame" x="32" y="98" width="48" height="48"/>
+                                        <rect key="frame" x="101" y="80" width="48" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="VPK-Rr-Vke"/>
                                             <constraint firstAttribute="width" secondItem="F3v-Fe-i0U" secondAttribute="height" multiplier="1:1" id="uPU-kt-MEH"/>
@@ -835,13 +814,27 @@
                                             <action selector="startPomodoro:" target="XfG-lQ-9wD" id="i0p-yu-sPK"/>
                                         </connections>
                                     </button>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="jbr-IH-vpW" userLabel="On/Off Button">
+                                        <rect key="frame" x="129" y="50" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="DKU-4o-StH"/>
+                                            <constraint firstAttribute="width" secondItem="jbr-IH-vpW" secondAttribute="height" multiplier="1:1" id="N6z-0h-QlV"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Power Off" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="x9q-S7-pwf">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="toggleState:" target="XfG-lQ-9wD" id="AiD-WQ-vHP"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="RJu-Yr-WCh" firstAttribute="centerX" secondItem="Kw1-l1-Vpm" secondAttribute="centerX" id="GGl-1W-YNI"/>
+                                    <constraint firstItem="F3v-Fe-i0U" firstAttribute="centerX" secondItem="Kw1-l1-Vpm" secondAttribute="centerX" id="2Rw-UG-1vu"/>
+                                    <constraint firstItem="jbr-IH-vpW" firstAttribute="centerY" secondItem="Kw1-l1-Vpm" secondAttribute="centerY" id="9g6-ox-NqH"/>
+                                    <constraint firstItem="jbr-IH-vpW" firstAttribute="leading" secondItem="Kw1-l1-Vpm" secondAttribute="centerX" constant="4" id="LzM-mu-7ZJ"/>
                                     <constraint firstItem="BVk-fe-YLz" firstAttribute="centerY" secondItem="Kw1-l1-Vpm" secondAttribute="centerY" id="SRF-Qu-Imp"/>
-                                    <constraint firstItem="F3v-Fe-i0U" firstAttribute="centerY" secondItem="RJu-Yr-WCh" secondAttribute="centerY" id="dGp-Kj-M2I"/>
-                                    <constraint firstItem="BVk-fe-YLz" firstAttribute="top" secondItem="RJu-Yr-WCh" secondAttribute="bottom" constant="20" id="fcO-It-IdQ"/>
-                                    <constraint firstItem="RJu-Yr-WCh" firstAttribute="leading" secondItem="F3v-Fe-i0U" secondAttribute="trailing" constant="16" id="pmp-rM-ybf"/>
+                                    <constraint firstItem="F3v-Fe-i0U" firstAttribute="top" secondItem="Kw1-l1-Vpm" secondAttribute="top" constant="4" id="eY6-em-2Ff"/>
                                     <constraint firstItem="BVk-fe-YLz" firstAttribute="leading" secondItem="Kw1-l1-Vpm" secondAttribute="leading" id="tWk-kQ-iRw"/>
                                     <constraint firstAttribute="trailing" secondItem="BVk-fe-YLz" secondAttribute="trailing" id="zBd-7E-vuQ"/>
                                 </constraints>
@@ -855,7 +848,7 @@
                             <constraint firstItem="3Pb-ao-aww" firstAttribute="leading" secondItem="iZ5-Bg-28P" secondAttribute="trailing" constant="2" id="7Kl-i1-YQq"/>
                             <constraint firstAttribute="bottom" secondItem="Kw1-l1-Vpm" secondAttribute="bottom" id="BEq-Z7-gbr"/>
                             <constraint firstItem="iZ5-Bg-28P" firstAttribute="centerY" secondItem="3Pb-ao-aww" secondAttribute="centerY" id="Ghj-hv-peT"/>
-                            <constraint firstItem="3Pb-ao-aww" firstAttribute="trailing" secondItem="guh-WW-uee" secondAttribute="trailing" constant="-2" id="J6N-Lw-qUR"/>
+                            <constraint firstItem="3Pb-ao-aww" firstAttribute="trailing" secondItem="guh-WW-uee" secondAttribute="trailing" constant="-4" id="J6N-Lw-qUR"/>
                             <constraint firstItem="Lk8-hm-0fg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Px3-EY-Heo"/>
                             <constraint firstItem="iZ5-Bg-28P" firstAttribute="height" secondItem="3Pb-ao-aww" secondAttribute="height" id="UTT-CQ-ojD"/>
                             <constraint firstItem="iZ5-Bg-28P" firstAttribute="centerY" secondItem="7dk-U1-rjq" secondAttribute="centerY" id="XO9-HM-89c"/>
@@ -877,10 +870,11 @@
                     </view>
                     <connections>
                         <outlet property="emptyStateLabel" destination="cxC-Qw-yZF" id="wUK-nc-Lvy"/>
+                        <outlet property="onOffButton" destination="jbr-IH-vpW" id="eUb-3h-h89"/>
+                        <outlet property="pomidoroButton" destination="F3v-Fe-i0U" id="QbT-4g-mfM"/>
                         <outlet property="remainingTimeLabel" destination="g0R-aY-oml" id="YCs-Gv-ncR"/>
                         <outlet property="selectedAppsHeaderLabel" destination="7dk-U1-rjq" id="LYG-cO-AS3"/>
                         <outlet property="selectedAppsSourceList" destination="Ymb-Qu-nXC" id="yYA-C5-2dh"/>
-                        <outlet property="startButton" destination="RJu-Yr-WCh" id="fWR-wU-e1H"/>
                         <outlet property="tableHeaderView" destination="guh-WW-uee" id="hZI-l5-8Av"/>
                         <outlet property="timeSelector" destination="iOe-K9-Uh9" id="KgL-LW-nWK"/>
                     </connections>
@@ -891,8 +885,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NSAddTemplate" width="11" height="11"/>
-        <image name="NSRemoveTemplate" width="11" height="11"/>
+        <image name="Minus" width="100" height="100"/>
+        <image name="Plus" width="100" height="100"/>
         <image name="Pomidoro" width="96" height="96"/>
+        <image name="Power Off" width="341.33334350585938" height="341.33334350585938"/>
     </resources>
 </document>

@@ -42,7 +42,8 @@ class ViewController: NSViewController {
     @IBOutlet private weak var timeSelector: TimeSelector!
     @IBOutlet private weak var remainingTimeLabel: NSTextField!
     @IBOutlet private weak var selectedAppsSourceList: NSOutlineView!
-    @IBOutlet private weak var startButton: NSButton!
+    @IBOutlet private weak var onOffButton: NSButton!
+    @IBOutlet private weak var pomidoroButton: NSButton!
     
     private var shouldPresentNotificationOnFinish = true
     private var hushTimeBlock: HushTimeBlock?
@@ -50,7 +51,8 @@ class ViewController: NSViewController {
     fileprivate var selectedApps = SelectedApps() {
         didSet {
             selectedAppsSourceList.reloadData()
-            startButton.isEnabled = !selectedApps.apps.isEmpty
+            onOffButton.isEnabled = !selectedApps.apps.isEmpty
+            pomidoroButton.isEnabled = !selectedApps.apps.isEmpty
             if selectedApps.apps.isEmpty { showEmptyState() }
             else { hideEmptyState() }
         }
@@ -109,18 +111,14 @@ class ViewController: NSViewController {
         start()
     }
     
-    @IBAction func startHushTime(_ sender: NSButton) {
+    @IBAction func toggleState(_ sender: Any) {
         
-        start()
-    }
-    
-    
-    @IBAction private func stopHushTime(_ sender: NSButton) {
-        
-        shouldPresentNotificationOnFinish = false
-        ProcessInfo.processInfo.enableAutomaticTermination("The timer is complete")
-        hushTimeBlock?.finish()
-        state = .notRunning
+        switch state {
+        case .running(_):
+            finish()
+        case .notRunning:
+            start()
+        }
     }
     
     @IBAction private func addAppClicked(_ sender: Any) {
@@ -136,9 +134,18 @@ class ViewController: NSViewController {
     }
     
     private func start() {
+        
         persistValues()
-        startHushTimeBlock()
+        runHushTimeBlock()
         shouldPresentNotificationOnFinish = true
+    }
+    
+    private func finish() {
+        
+        shouldPresentNotificationOnFinish = false
+        ProcessInfo.processInfo.enableAutomaticTermination("The timer is complete")
+        hushTimeBlock?.finish()
+        state = .notRunning
     }
     
     private func persistValues() {
@@ -150,7 +157,7 @@ class ViewController: NSViewController {
         UserDefaults.standard.set(selectedApps.apps, forKey: Keys.selectedApps)
     }
     
-    private func startHushTimeBlock() {
+    private func runHushTimeBlock() {
 
         let timeOfBlock = timeSelector.value
         
@@ -172,13 +179,14 @@ class ViewController: NSViewController {
         
         remainingTimeLabel.isHidden = !isRunning
         timeSelector.isHidden = isRunning
+        onOffButton.image = isRunning ? NSImage(named: "Power On") : NSImage(named: "Power Off")
         selectedAppsSourceList.allowsMultipleSelection = true
     }
     
     private func configureViewForRemainingTime() {
         
         guard remainingTime.value > 0 else {
-            handleFinish()
+            handleTimeBlockRemainingAtZero()
             return
         }
         
@@ -198,7 +206,7 @@ class ViewController: NSViewController {
         "\(leftPadded(hours)):\(leftPadded(minutes)):\(leftPadded(seconds))"
     }
     
-    private func handleFinish() {
+    private func handleTimeBlockRemainingAtZero() {
         if shouldPresentNotificationOnFinish {
             if case .running(let duration) = state {
                 let message = duration == timeOfPomodoro ? "Pomidoro finished" : "Time block finished"
