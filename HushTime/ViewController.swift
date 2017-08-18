@@ -44,9 +44,9 @@ class ViewController: NSViewController {
     @IBOutlet private weak var selectedAppsSourceList: NSOutlineView!
     @IBOutlet private weak var onOffButton: NSButton!
     @IBOutlet private weak var pomidoroButton: NSButton!
-    @IBOutlet weak var configurationView: NSView!
-    
+    @IBOutlet private weak var configurationView: NSView!
     @IBOutlet weak var selectedAppsView: NSScrollView!
+    
     private var shouldPresentNotificationOnFinish = true
     private var hushTimeBlock: HushTimeBlock?
     
