@@ -44,7 +44,9 @@ class ViewController: NSViewController {
     @IBOutlet private weak var selectedAppsSourceList: NSOutlineView!
     @IBOutlet private weak var onOffButton: NSButton!
     @IBOutlet private weak var pomidoroButton: NSButton!
+    @IBOutlet weak var configurationView: NSView!
     
+    @IBOutlet weak var selectedAppsView: NSScrollView!
     private var shouldPresentNotificationOnFinish = true
     private var hushTimeBlock: HushTimeBlock?
     
@@ -89,9 +91,13 @@ class ViewController: NSViewController {
         firstTimeSetup()
     }
     
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        view.window?.titlebarAppearsTransparent = true
+    }
+    
     private func firstTimeSetup() {
         
-        selectedAppsSourceList.headerView = tableHeaderView
         selectedAppsSourceList.dataSource = self
         selectedAppsSourceList.delegate = self
         selectedAppsSourceList.reloadData()
