@@ -33,13 +33,13 @@
 		95377BD71F24636000DA1B38 /* AppNamesPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNamesPickerViewController.swift; sourceTree = "<group>"; };
 		954B25C71F1B952400678256 /* TimeSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeSelector.xib; sourceTree = "<group>"; };
 		954B25C91F1B954400678256 /* TimeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSelector.swift; sourceTree = "<group>"; };
-		954C28FB1EFA2CE4005A73A4 /* HushTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HushTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		954C28FB1EFA2CE4005A73A4 /* Hush Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hush Time.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		954C28FE1EFA2CE4005A73A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		954C29001EFA2CE4005A73A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		954C29021EFA2CE4005A73A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		954C29051EFA2CE4005A73A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		954C29071EFA2CE4005A73A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		954C290C1EFA2CE5005A73A4 /* HushTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HushTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		954C290C1EFA2CE5005A73A4 /* Hush TimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hush TimeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		954C29121EFA2CE5005A73A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		954C291B1EFA2D3E005A73A4 /* AppOpenerCloser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppOpenerCloser.swift; sourceTree = "<group>"; };
 		954C29211EFA3A69005A73A4 /* HushTimeBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HushTimeBlock.swift; sourceTree = "<group>"; };
@@ -78,8 +78,8 @@
 		954C28FC1EFA2CE4005A73A4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				954C28FB1EFA2CE4005A73A4 /* HushTime.app */,
-				954C290C1EFA2CE5005A73A4 /* HushTimeTests.xctest */,
+				954C28FB1EFA2CE4005A73A4 /* Hush Time.app */,
+				954C290C1EFA2CE5005A73A4 /* Hush TimeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,9 +113,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		954C28FA1EFA2CE4005A73A4 /* HushTime */ = {
+		954C28FA1EFA2CE4005A73A4 /* Hush Time */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 954C29151EFA2CE5005A73A4 /* Build configuration list for PBXNativeTarget "HushTime" */;
+			buildConfigurationList = 954C29151EFA2CE5005A73A4 /* Build configuration list for PBXNativeTarget "Hush Time" */;
 			buildPhases = (
 				954C28F71EFA2CE4005A73A4 /* Sources */,
 				954C28F81EFA2CE4005A73A4 /* Frameworks */,
@@ -125,14 +125,14 @@
 			);
 			dependencies = (
 			);
-			name = HushTime;
+			name = "Hush Time";
 			productName = HushTime;
-			productReference = 954C28FB1EFA2CE4005A73A4 /* HushTime.app */;
+			productReference = 954C28FB1EFA2CE4005A73A4 /* Hush Time.app */;
 			productType = "com.apple.product-type.application";
 		};
-		954C290B1EFA2CE5005A73A4 /* HushTimeTests */ = {
+		954C290B1EFA2CE5005A73A4 /* Hush TimeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 954C29181EFA2CE5005A73A4 /* Build configuration list for PBXNativeTarget "HushTimeTests" */;
+			buildConfigurationList = 954C29181EFA2CE5005A73A4 /* Build configuration list for PBXNativeTarget "Hush TimeTests" */;
 			buildPhases = (
 				954C29081EFA2CE5005A73A4 /* Sources */,
 				954C29091EFA2CE5005A73A4 /* Frameworks */,
@@ -143,9 +143,9 @@
 			dependencies = (
 				954C290E1EFA2CE5005A73A4 /* PBXTargetDependency */,
 			);
-			name = HushTimeTests;
+			name = "Hush TimeTests";
 			productName = HushTimeTests;
-			productReference = 954C290C1EFA2CE5005A73A4 /* HushTimeTests.xctest */;
+			productReference = 954C290C1EFA2CE5005A73A4 /* Hush TimeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -171,7 +171,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 954C28F61EFA2CE4005A73A4 /* Build configuration list for PBXProject "HushTime" */;
+			buildConfigurationList = 954C28F61EFA2CE4005A73A4 /* Build configuration list for PBXProject "Hush Time" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -184,8 +184,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				954C28FA1EFA2CE4005A73A4 /* HushTime */,
-				954C290B1EFA2CE5005A73A4 /* HushTimeTests */,
+				954C28FA1EFA2CE4005A73A4 /* Hush Time */,
+				954C290B1EFA2CE5005A73A4 /* Hush TimeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -237,7 +237,7 @@
 /* Begin PBXTargetDependency section */
 		954C290E1EFA2CE5005A73A4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 954C28FA1EFA2CE4005A73A4 /* HushTime */;
+			target = 954C28FA1EFA2CE4005A73A4 /* Hush Time */;
 			targetProxy = 954C290D1EFA2CE5005A73A4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -394,7 +394,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.thecodedself.HushTimeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HushTime.app/Contents/MacOS/HushTime";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hush Time.app/Contents/MacOS/Hush Time";
 			};
 			name = Debug;
 		};
@@ -409,14 +409,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.thecodedself.HushTimeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HushTime.app/Contents/MacOS/HushTime";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hush Time.app/Contents/MacOS/Hush Time";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		954C28F61EFA2CE4005A73A4 /* Build configuration list for PBXProject "HushTime" */ = {
+		954C28F61EFA2CE4005A73A4 /* Build configuration list for PBXProject "Hush Time" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				954C29131EFA2CE5005A73A4 /* Debug */,
@@ -425,7 +425,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		954C29151EFA2CE5005A73A4 /* Build configuration list for PBXNativeTarget "HushTime" */ = {
+		954C29151EFA2CE5005A73A4 /* Build configuration list for PBXNativeTarget "Hush Time" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				954C29161EFA2CE5005A73A4 /* Debug */,
@@ -434,7 +434,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		954C29181EFA2CE5005A73A4 /* Build configuration list for PBXNativeTarget "HushTimeTests" */ = {
+		954C29181EFA2CE5005A73A4 /* Build configuration list for PBXNativeTarget "Hush TimeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				954C29191EFA2CE5005A73A4 /* Debug */,
