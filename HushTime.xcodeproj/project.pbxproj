@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		95377BD91F24636000DA1B38 /* AppNamesPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95377BD71F24636000DA1B38 /* AppNamesPickerViewController.swift */; };
-		95377BDA1F24636000DA1B38 /* AppNamesPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95377BD81F24636000DA1B38 /* AppNamesPickerViewController.xib */; };
 		954B25C81F1B952400678256 /* TimeSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 954B25C71F1B952400678256 /* TimeSelector.xib */; };
 		954B25CA1F1B954400678256 /* TimeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B25C91F1B954400678256 /* TimeSelector.swift */; };
 		954C28FF1EFA2CE4005A73A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954C28FE1EFA2CE4005A73A4 /* AppDelegate.swift */; };
@@ -32,7 +31,6 @@
 
 /* Begin PBXFileReference section */
 		95377BD71F24636000DA1B38 /* AppNamesPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNamesPickerViewController.swift; sourceTree = "<group>"; };
-		95377BD81F24636000DA1B38 /* AppNamesPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppNamesPickerViewController.xib; sourceTree = "<group>"; };
 		954B25C71F1B952400678256 /* TimeSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeSelector.xib; sourceTree = "<group>"; };
 		954B25C91F1B954400678256 /* TimeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSelector.swift; sourceTree = "<group>"; };
 		954C28FB1EFA2CE4005A73A4 /* HushTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HushTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,7 +98,6 @@
 				954B25C91F1B954400678256 /* TimeSelector.swift */,
 				95A6690B1F1FB626001B2F3E /* HushTime-Bridging-Header.h */,
 				95377BD71F24636000DA1B38 /* AppNamesPickerViewController.swift */,
-				95377BD81F24636000DA1B38 /* AppNamesPickerViewController.xib */,
 			);
 			path = HushTime;
 			sourceTree = "<group>";
@@ -199,7 +196,6 @@
 			files = (
 				954C29031EFA2CE4005A73A4 /* Assets.xcassets in Resources */,
 				954B25C81F1B952400678256 /* TimeSelector.xib in Resources */,
-				95377BDA1F24636000DA1B38 /* AppNamesPickerViewController.xib in Resources */,
 				95C7CAAA1F40A7F200D149E2 /* bell.m4a in Resources */,
 				954C29061EFA2CE4005A73A4 /* Main.storyboard in Resources */,
 			);

@@ -12,8 +12,6 @@ typealias Time = Measurement<UnitDuration>
 
 class TimeSelector: NSView {
     
-    //bind changes in the stepper to the textView and vice versa
-    
     @IBOutlet private weak var mainView: NSView!
     @IBOutlet fileprivate weak var minuteTextField: NSTextField!
     @IBOutlet fileprivate weak var hourTextField: NSTextField!
@@ -28,44 +26,50 @@ class TimeSelector: NSView {
         return Time(value: Double(hourTextField.stringValue) ?? 0, unit: .hours)
     }
     
-    
     private var minutes: Time {
         return Time(value: Double(minuteTextField.stringValue) ?? 0, unit: .minutes)
     }
     
     
     override init(frame frameRect: NSRect) {
+        
         super.init(frame: frameRect)
         loadView()
     }
     
     required init?(coder: NSCoder) {
+        
         super.init(coder: coder)
         loadView()
     }
     
     func populate(with time: Time) {
+        
         minuteTextField.integerValue = Int(time.converted(to: .minutes).value) % 60
         hourTextField.integerValue = Int(time.converted(to: .hours).value)
         resetIfInvalid()
     }
     
     fileprivate func resetIfInvalid() {
+        
         resetHourTextIfNotValidHour()
         resetMinuteTextIfNotValidMinute()
     }
     
     @IBAction private func minutesChanged(_ sender: Any) {
+        
         minuteTextField.integerValue = minuteStepper.integerValue
         resetIfInvalid()
     }
     
     @IBAction private func hoursChanged(_ sender: Any) {
+        
         hourTextField.integerValue = hourStepper.integerValue
         resetIfInvalid()
     }
     
     private func loadView() {
+        
         Bundle.main.loadNibNamed(String(describing: TimeSelector.self),
                                  owner: self,
                                  topLevelObjects: nil)
@@ -113,6 +117,7 @@ extension TimeSelector: NSTextFieldDelegate {
     }
     
     override func controlTextDidChange(_ obj: Notification) {
+        
         guard let textField = obj.object as? NSTextField else { return }
         if textField == hourTextField {
             if let hour = Int(textField.stringValue) {

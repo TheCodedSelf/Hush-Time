@@ -684,14 +684,14 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="HushTime" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="234" height="496"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Kw1-l1-Vpm" userLabel="Power Button, Time, Pomidoro">
-                                <rect key="frame" x="0.0" y="412" width="234" height="84"/>
+                                <rect key="frame" x="0.0" y="308" width="300" height="92"/>
                                 <subviews>
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="F3v-Fe-i0U" userLabel="Pomidoro Button">
-                                        <rect key="frame" x="93" y="28" width="48" height="48"/>
+                                        <rect key="frame" x="126" y="36" width="48" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="VPK-Rr-Vke"/>
                                             <constraint firstAttribute="width" secondItem="F3v-Fe-i0U" secondAttribute="height" multiplier="1:1" id="uPU-kt-MEH"/>
@@ -705,7 +705,7 @@
                                         </connections>
                                     </button>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="BVk-fe-YLz" userLabel="Time and Power">
-                                        <rect key="frame" x="34" y="0.0" width="166" height="32"/>
+                                        <rect key="frame" x="67" y="0.0" width="166" height="32"/>
                                         <subviews>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="iOe-K9-Uh9" customClass="TimeSelector" customModule="HushTime" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="32"/>
@@ -752,28 +752,28 @@
                                 <constraints>
                                     <constraint firstItem="F3v-Fe-i0U" firstAttribute="centerX" secondItem="Kw1-l1-Vpm" secondAttribute="centerX" id="2Rw-UG-1vu"/>
                                     <constraint firstItem="BVk-fe-YLz" firstAttribute="centerX" secondItem="Kw1-l1-Vpm" secondAttribute="centerX" id="9JG-Ad-2zA"/>
-                                    <constraint firstItem="F3v-Fe-i0U" firstAttribute="bottom" secondItem="BVk-fe-YLz" secondAttribute="top" constant="4" id="Fpp-RG-rVq"/>
+                                    <constraint firstItem="BVk-fe-YLz" firstAttribute="top" secondItem="F3v-Fe-i0U" secondAttribute="bottom" constant="4" id="Fpp-RG-rVq"/>
                                     <constraint firstAttribute="bottom" secondItem="BVk-fe-YLz" secondAttribute="bottom" id="Xqi-K2-ZM6"/>
                                     <constraint firstItem="F3v-Fe-i0U" firstAttribute="top" secondItem="Kw1-l1-Vpm" secondAttribute="top" constant="8" id="eY6-em-2Ff"/>
                                 </constraints>
                             </customView>
                             <customView hidden="YES" focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="guh-WW-uee" customClass="NSTableHeaderView">
-                                <rect key="frame" x="0.0" y="382" width="234" height="22"/>
+                                <rect key="frame" x="0.0" y="278" width="300" height="22"/>
                             </customView>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lk8-hm-0fg" userLabel="Selected Apps Scroll View - Outline View">
-                                <rect key="frame" x="0.0" y="0.0" width="234" height="380"/>
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="276"/>
                                 <clipView key="contentView" drawsBackground="NO" id="H3n-Bx-ga8" userLabel="Selected Apps Clip View">
-                                    <rect key="frame" x="1" y="1" width="232" height="378"/>
+                                    <rect key="frame" x="1" y="1" width="298" height="274"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="14" outlineTableColumn="Cc5-Kg-t2l" id="Ymb-Qu-nXC">
-                                            <rect key="frame" x="0.0" y="0.0" width="232" height="378"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="298" height="274"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="0.0"/>
                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="229" minWidth="16" maxWidth="1000" id="Cc5-Kg-t2l">
+                                                <tableColumn width="295" minWidth="16" maxWidth="1000" id="Cc5-Kg-t2l">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -804,7 +804,7 @@
                                 </scroller>
                             </scrollView>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxC-Qw-yZF" userLabel="No Apps Description Label">
-                                <rect key="frame" x="14" y="174" width="206" height="32"/>
+                                <rect key="frame" x="14" y="122" width="272" height="32"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Select some apps that you'd like to remain quiet for your Hush Time" id="xZO-af-98M">
                                     <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -812,7 +812,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dk-U1-rjq" userLabel="Selected Apps Header Label">
-                                <rect key="frame" x="8" y="382" width="158" height="22"/>
+                                <rect key="frame" x="8" y="278" width="158" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="No Apps Selected" id="MRa-Kc-i2b">
                                     <font key="font" metaFont="systemBold" size="18"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -820,7 +820,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iZ5-Bg-28P" userLabel="Add Button">
-                                <rect key="frame" x="180" y="381" width="24" height="24"/>
+                                <rect key="frame" x="246" y="277" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="iZ5-Bg-28P" secondAttribute="height" id="EyQ-Xz-Him"/>
                                     <constraint firstAttribute="height" constant="24" id="rtV-AM-9r5"/>
@@ -834,7 +834,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3Pb-ao-aww" userLabel="Remove Button">
-                                <rect key="frame" x="206" y="381" width="24" height="24"/>
+                                <rect key="frame" x="272" y="277" width="24" height="24"/>
                                 <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="Minus" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="StH-JA-12t">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>

@@ -44,6 +44,7 @@ class HushTimeBlock {
     }
     
     func finish() {
+        
         timer?.invalidate()
         launchApps()
         updateStatus(Time(value: 0, unit: .seconds))

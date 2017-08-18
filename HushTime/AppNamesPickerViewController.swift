@@ -8,15 +8,6 @@
 
 import Cocoa
 
-class AppNamesPickerViewController: NSViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
-    }
-    
-}
-
 struct AppNamesPicker {
     
     private let panel: NSOpenPanel = {
