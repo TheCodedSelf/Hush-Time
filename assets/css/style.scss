@@ -15,7 +15,7 @@
 	    float: right;
 	    right: 10px;
 		    padding: 10px 50px 10px 10px;
-	    padding-left: 90px;
+		    text-shadow: 1px 1px #000000;
 		      color: #fff;
 		        background: url('../images/blacktocat.png') #0090ff no-repeat 95% 50%;
 			  font-weight: 700;
@@ -27,7 +27,9 @@
 #downloadme_banner {
 	  display: block;
 	    float: left;
+	    margin-right: 10px;
 		    padding: 10px 50px 10px 10px;
+		    text-shadow: 1px 1px #000000;
 		      color: #fff;
 		        background: url('../images/blacktocat.png') #ff9d00 no-repeat 95% 50%;
 			  font-weight: 700;
