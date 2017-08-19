@@ -1,0 +1,449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		95377BD91F24636000DA1B38 /* AppNamesPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95377BD71F24636000DA1B38 /* AppNamesPickerViewController.swift */; };
+		954B25C81F1B952400678256 /* TimeSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 954B25C71F1B952400678256 /* TimeSelector.xib */; };
+		954B25CA1F1B954400678256 /* TimeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B25C91F1B954400678256 /* TimeSelector.swift */; };
+		954C28FF1EFA2CE4005A73A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954C28FE1EFA2CE4005A73A4 /* AppDelegate.swift */; };
+		954C29011EFA2CE4005A73A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954C29001EFA2CE4005A73A4 /* ViewController.swift */; };
+		954C29031EFA2CE4005A73A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 954C29021EFA2CE4005A73A4 /* Assets.xcassets */; };
+		954C29061EFA2CE4005A73A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 954C29041EFA2CE4005A73A4 /* Main.storyboard */; };
+		954C291C1EFA2D3E005A73A4 /* AppOpenerCloser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954C291B1EFA2D3E005A73A4 /* AppOpenerCloser.swift */; };
+		954C29221EFA3A69005A73A4 /* HushTimeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954C29211EFA3A69005A73A4 /* HushTimeBlock.swift */; };
+		95C7CAAA1F40A7F200D149E2 /* bell.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 95C7CAA91F40A7F200D149E2 /* bell.m4a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		954C290D1EFA2CE5005A73A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 954C28F31EFA2CE4005A73A4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 954C28FA1EFA2CE4005A73A4;
+			remoteInfo = HushTime;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		95377BD71F24636000DA1B38 /* AppNamesPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNamesPickerViewController.swift; sourceTree = "<group>"; };
+		954B25C71F1B952400678256 /* TimeSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeSelector.xib; sourceTree = "<group>"; };
+		954B25C91F1B954400678256 /* TimeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSelector.swift; sourceTree = "<group>"; };
+		954C28FB1EFA2CE4005A73A4 /* Hush Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hush Time.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		954C28FE1EFA2CE4005A73A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		954C29001EFA2CE4005A73A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		954C29021EFA2CE4005A73A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		954C29051EFA2CE4005A73A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		954C29071EFA2CE4005A73A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		954C290C1EFA2CE5005A73A4 /* Hush TimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hush TimeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		954C29121EFA2CE5005A73A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		954C291B1EFA2D3E005A73A4 /* AppOpenerCloser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppOpenerCloser.swift; sourceTree = "<group>"; };
+		954C29211EFA3A69005A73A4 /* HushTimeBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HushTimeBlock.swift; sourceTree = "<group>"; };
+		95A6690B1F1FB626001B2F3E /* HushTime-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HushTime-Bridging-Header.h"; sourceTree = "<group>"; };
+		95C7CAA91F40A7F200D149E2 /* bell.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = bell.m4a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		954C28F81EFA2CE4005A73A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		954C29091EFA2CE5005A73A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		954C28F21EFA2CE4005A73A4 = {
+			isa = PBXGroup;
+			children = (
+				95C7CAA91F40A7F200D149E2 /* bell.m4a */,
+				954C28FD1EFA2CE4005A73A4 /* HushTime */,
+				954C290F1EFA2CE5005A73A4 /* HushTimeTests */,
+				954C28FC1EFA2CE4005A73A4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		954C28FC1EFA2CE4005A73A4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				954C28FB1EFA2CE4005A73A4 /* Hush Time.app */,
+				954C290C1EFA2CE5005A73A4 /* Hush TimeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		954C28FD1EFA2CE4005A73A4 /* HushTime */ = {
+			isa = PBXGroup;
+			children = (
+				954C28FE1EFA2CE4005A73A4 /* AppDelegate.swift */,
+				954C29001EFA2CE4005A73A4 /* ViewController.swift */,
+				954C29021EFA2CE4005A73A4 /* Assets.xcassets */,
+				954C29041EFA2CE4005A73A4 /* Main.storyboard */,
+				954C29071EFA2CE4005A73A4 /* Info.plist */,
+				954C291B1EFA2D3E005A73A4 /* AppOpenerCloser.swift */,
+				954C29211EFA3A69005A73A4 /* HushTimeBlock.swift */,
+				954B25C71F1B952400678256 /* TimeSelector.xib */,
+				954B25C91F1B954400678256 /* TimeSelector.swift */,
+				95A6690B1F1FB626001B2F3E /* HushTime-Bridging-Header.h */,
+				95377BD71F24636000DA1B38 /* AppNamesPickerViewController.swift */,
+			);
+			path = HushTime;
+			sourceTree = "<group>";
+		};
+		954C290F1EFA2CE5005A73A4 /* HushTimeTests */ = {
+			isa = PBXGroup;
+			children = (
+				954C29121EFA2CE5005A73A4 /* Info.plist */,
+			);
+			path = HushTimeTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		954C28FA1EFA2CE4005A73A4 /* Hush Time */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 954C29151EFA2CE5005A73A4 /* Build configuration list for PBXNativeTarget "Hush Time" */;
+			buildPhases = (
+				954C28F71EFA2CE4005A73A4 /* Sources */,
+				954C28F81EFA2CE4005A73A4 /* Frameworks */,
+				954C28F91EFA2CE4005A73A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hush Time";
+			productName = HushTime;
+			productReference = 954C28FB1EFA2CE4005A73A4 /* Hush Time.app */;
+			productType = "com.apple.product-type.application";
+		};
+		954C290B1EFA2CE5005A73A4 /* Hush TimeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 954C29181EFA2CE5005A73A4 /* Build configuration list for PBXNativeTarget "Hush TimeTests" */;
+			buildPhases = (
+				954C29081EFA2CE5005A73A4 /* Sources */,
+				954C29091EFA2CE5005A73A4 /* Frameworks */,
+				954C290A1EFA2CE5005A73A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				954C290E1EFA2CE5005A73A4 /* PBXTargetDependency */,
+			);
+			name = "Hush TimeTests";
+			productName = HushTimeTests;
+			productReference = 954C290C1EFA2CE5005A73A4 /* Hush TimeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		954C28F31EFA2CE4005A73A4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = TheCodedSelf;
+				TargetAttributes = {
+					954C28FA1EFA2CE4005A73A4 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = MC7X4Q9BS6;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+					954C290B1EFA2CE5005A73A4 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 954C28FA1EFA2CE4005A73A4;
+					};
+				};
+			};
+			buildConfigurationList = 954C28F61EFA2CE4005A73A4 /* Build configuration list for PBXProject "Hush Time" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 954C28F21EFA2CE4005A73A4;
+			productRefGroup = 954C28FC1EFA2CE4005A73A4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				954C28FA1EFA2CE4005A73A4 /* Hush Time */,
+				954C290B1EFA2CE5005A73A4 /* Hush TimeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		954C28F91EFA2CE4005A73A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				954C29031EFA2CE4005A73A4 /* Assets.xcassets in Resources */,
+				954B25C81F1B952400678256 /* TimeSelector.xib in Resources */,
+				95C7CAAA1F40A7F200D149E2 /* bell.m4a in Resources */,
+				954C29061EFA2CE4005A73A4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		954C290A1EFA2CE5005A73A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		954C28F71EFA2CE4005A73A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				954C29221EFA3A69005A73A4 /* HushTimeBlock.swift in Sources */,
+				954C29011EFA2CE4005A73A4 /* ViewController.swift in Sources */,
+				954C291C1EFA2D3E005A73A4 /* AppOpenerCloser.swift in Sources */,
+				95377BD91F24636000DA1B38 /* AppNamesPickerViewController.swift in Sources */,
+				954B25CA1F1B954400678256 /* TimeSelector.swift in Sources */,
+				954C28FF1EFA2CE4005A73A4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		954C29081EFA2CE5005A73A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		954C290E1EFA2CE5005A73A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 954C28FA1EFA2CE4005A73A4 /* Hush Time */;
+			targetProxy = 954C290D1EFA2CE5005A73A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		954C29041EFA2CE4005A73A4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				954C29051EFA2CE4005A73A4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		954C29131EFA2CE5005A73A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		954C29141EFA2CE5005A73A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		954C29161EFA2CE5005A73A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = MC7X4Q9BS6;
+				INFOPLIST_FILE = HushTime/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thecodedself.HushTime;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "HushTime/HushTime-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		954C29171EFA2CE5005A73A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = MC7X4Q9BS6;
+				INFOPLIST_FILE = HushTime/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thecodedself.HushTime;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "HushTime/HushTime-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		954C29191EFA2CE5005A73A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = HushTimeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thecodedself.HushTimeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hush Time.app/Contents/MacOS/Hush Time";
+			};
+			name = Debug;
+		};
+		954C291A1EFA2CE5005A73A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = HushTimeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thecodedself.HushTimeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hush Time.app/Contents/MacOS/Hush Time";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		954C28F61EFA2CE4005A73A4 /* Build configuration list for PBXProject "Hush Time" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				954C29131EFA2CE5005A73A4 /* Debug */,
+				954C29141EFA2CE5005A73A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		954C29151EFA2CE5005A73A4 /* Build configuration list for PBXNativeTarget "Hush Time" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				954C29161EFA2CE5005A73A4 /* Debug */,
+				954C29171EFA2CE5005A73A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		954C29181EFA2CE5005A73A4 /* Build configuration list for PBXNativeTarget "Hush TimeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				954C29191EFA2CE5005A73A4 /* Debug */,
+				954C291A1EFA2CE5005A73A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 954C28F31EFA2CE4005A73A4 /* Project object */;
+}

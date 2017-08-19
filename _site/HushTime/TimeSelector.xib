@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="TimeSelector" customModule="HushTime" customModuleProvider="target">
+            <connections>
+                <outlet property="hourStepper" destination="8Cj-f0-cLh" id="maz-vF-mwt"/>
+                <outlet property="hourTextField" destination="Q3k-rY-rop" id="ms9-0g-KAv"/>
+                <outlet property="mainView" destination="c22-O7-iKe" id="OQa-1V-mM6"/>
+                <outlet property="minuteStepper" destination="DSf-Aw-fgG" id="Juv-tW-bMr"/>
+                <outlet property="minuteTextField" destination="Nta-Uz-isi" id="Rtp-YL-d8Z"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="665" height="22"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qtd-JJ-Rex">
+                    <rect key="frame" x="0.0" y="0.0" width="665" height="22"/>
+                    <subviews>
+                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r9U-QA-B8k" userLabel="Hour Text and Picker">
+                            <rect key="frame" x="0.0" y="0.0" width="328.5" height="22"/>
+                            <subviews>
+                                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3k-rY-rop">
+                                    <rect key="frame" x="0.0" y="0.0" width="307.5" height="22"/>
+                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="82w-yF-agr">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Cj-f0-cLh">
+                                    <rect key="frame" x="304.5" y="-2" width="19" height="26"/>
+                                    <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="eoa-3P-beu"/>
+                                    <connections>
+                                        <action selector="hoursChanged:" target="-2" id="y6f-up-XxW"/>
+                                    </connections>
+                                </stepper>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoQ-pS-Aae">
+                                    <rect key="frame" x="318.5" y="2.5" width="12" height="17"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="h" id="Jtj-iX-5i2">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="8Cj-f0-cLh" firstAttribute="height" secondItem="Q3k-rY-rop" secondAttribute="height" id="Zwt-eE-OgB"/>
+                            </constraints>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <textField horizontalHuggingPriority="252" verticalHuggingPriority="750" horizontalCompressionResistancePriority="749" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6a-vy-Nrc">
+                            <rect key="frame" x="326.5" y="2.5" width="12" height="17"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title=":" id="RsU-Bs-f8Z">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xvx-Nu-9Qb" userLabel="Minute Text and Picker">
+                            <rect key="frame" x="336.5" y="0.0" width="328.5" height="22"/>
+                            <subviews>
+                                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nta-Uz-isi">
+                                    <rect key="frame" x="0.0" y="0.0" width="303.5" height="22"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="PcY-xT-iJ3">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DSf-Aw-fgG">
+                                    <rect key="frame" x="300.5" y="-2" width="19" height="26"/>
+                                    <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="5Cc-Fg-xVc"/>
+                                    <connections>
+                                        <action selector="minutesChanged:" target="-2" id="ezI-Y4-77m"/>
+                                    </connections>
+                                </stepper>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8Y-Ru-cic">
+                                    <rect key="frame" x="314.5" y="2.5" width="16" height="17"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="m" id="ZOC-BW-WBc">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="r9U-QA-B8k" firstAttribute="height" secondItem="Qtd-JJ-Rex" secondAttribute="height" id="Qw6-df-BkX"/>
+                        <constraint firstItem="DSf-Aw-fgG" firstAttribute="height" secondItem="Q3k-rY-rop" secondAttribute="height" id="Ubv-JS-E1S"/>
+                        <constraint firstItem="r9U-QA-B8k" firstAttribute="width" secondItem="Xvx-Nu-9Qb" secondAttribute="width" id="ZZp-7P-b6A"/>
+                        <constraint firstItem="Nta-Uz-isi" firstAttribute="height" secondItem="Q3k-rY-rop" secondAttribute="height" id="iRE-ID-Suw"/>
+                        <constraint firstItem="Xvx-Nu-9Qb" firstAttribute="height" secondItem="Qtd-JJ-Rex" secondAttribute="height" id="mXI-gi-8Yg"/>
+                        <constraint firstItem="r9U-QA-B8k" firstAttribute="height" secondItem="Xvx-Nu-9Qb" secondAttribute="height" id="u4s-9O-JEV"/>
+                    </constraints>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Qtd-JJ-Rex" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="GNO-ZV-zHr"/>
+                <constraint firstAttribute="bottom" secondItem="Qtd-JJ-Rex" secondAttribute="bottom" id="H6N-yh-Pww"/>
+                <constraint firstItem="Qtd-JJ-Rex" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="cQ1-54-ANf"/>
+                <constraint firstAttribute="trailing" secondItem="Qtd-JJ-Rex" secondAttribute="trailing" id="ha2-n2-jlh"/>
+            </constraints>
+        </customView>
+    </objects>
+</document>
