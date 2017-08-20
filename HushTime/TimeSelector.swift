@@ -12,6 +12,8 @@ typealias Time = Measurement<UnitDuration>
 
 class TimeSelector: NSView {
     
+    var valueChanged: (() -> ())? = nil
+    
     @IBOutlet private weak var mainView: NSView!
     @IBOutlet fileprivate weak var minuteTextField: NSTextField!
     @IBOutlet fileprivate weak var hourTextField: NSTextField!
@@ -47,25 +49,26 @@ class TimeSelector: NSView {
         
         minuteTextField.integerValue = Int(time.converted(to: .minutes).value) % 60
         hourTextField.integerValue = Int(time.converted(to: .hours).value)
-        resetIfInvalid()
+        updateForChangedValues()
     }
     
-    fileprivate func resetIfInvalid() {
+    fileprivate func updateForChangedValues() {
         
         resetHourTextIfNotValidHour()
         resetMinuteTextIfNotValidMinute()
+        valueChanged?()
     }
     
     @IBAction private func minutesChanged(_ sender: Any) {
         
         minuteTextField.integerValue = minuteStepper.integerValue
-        resetIfInvalid()
+        updateForChangedValues()
     }
     
     @IBAction private func hoursChanged(_ sender: Any) {
         
         hourTextField.integerValue = hourStepper.integerValue
-        resetIfInvalid()
+        updateForChangedValues()
     }
     
     private func loadView() {
@@ -113,7 +116,7 @@ class TimeSelector: NSView {
 extension TimeSelector: NSTextFieldDelegate {
     
     override func controlTextDidEndEditing(_ obj: Notification) {
-        resetIfInvalid()
+        updateForChangedValues()
     }
     
     override func controlTextDidChange(_ obj: Notification) {

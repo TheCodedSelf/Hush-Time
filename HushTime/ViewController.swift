@@ -45,7 +45,7 @@ class ViewController: NSViewController {
     @IBOutlet private weak var onOffButton: NSButton!
     @IBOutlet private weak var pomidoroButton: NSButton!
     @IBOutlet private weak var configurationView: NSView!
-    @IBOutlet weak var selectedAppsView: NSScrollView!
+    @IBOutlet private weak var selectedAppsView: NSScrollView!
     
     private var shouldPresentNotificationOnFinish = true
     private var hushTimeBlock: HushTimeBlock?
@@ -53,8 +53,7 @@ class ViewController: NSViewController {
     fileprivate var selectedApps = SelectedApps() {
         didSet {
             selectedAppsSourceList.reloadData()
-            onOffButton.isEnabled = !selectedApps.apps.isEmpty
-            pomidoroButton.isEnabled = !selectedApps.apps.isEmpty
+            setButtonStateAccordingToAbilityToStart()
             if selectedApps.apps.isEmpty { showEmptyState() }
             else { hideEmptyState() }
         }
@@ -98,6 +97,10 @@ class ViewController: NSViewController {
     
     private func firstTimeSetup() {
         
+        timeSelector.valueChanged = { [weak self] in
+            self?.setButtonStateAccordingToAbilityToStart()
+        }
+        
         selectedAppsSourceList.dataSource = self
         selectedAppsSourceList.delegate = self
         selectedAppsSourceList.reloadData()
@@ -111,7 +114,14 @@ class ViewController: NSViewController {
         
     }
     
-    @IBAction func startPomodoro(_ sender: Any) {
+    private func setButtonStateAccordingToAbilityToStart() {
+        let isTimeValid = timeSelector.value.value > 0
+        let selectedAppsNonEmpty = !selectedApps.apps.isEmpty
+        pomidoroButton.isEnabled = isTimeValid && selectedAppsNonEmpty
+        onOffButton.isEnabled = isTimeValid && selectedAppsNonEmpty
+    }
+    
+    @IBAction private func startPomodoro(_ sender: Any) {
         
         timeSelector.populate(with: timeOfPomodoro)
         start()
@@ -185,6 +195,7 @@ class ViewController: NSViewController {
         
         remainingTimeLabel.isHidden = !isRunning
         timeSelector.isHidden = isRunning
+        pomidoroButton.isEnabled = !isRunning
         onOffButton.image = isRunning ? NSImage(named: "Power On") : NSImage(named: "Power Off")
         selectedAppsSourceList.allowsMultipleSelection = true
     }
