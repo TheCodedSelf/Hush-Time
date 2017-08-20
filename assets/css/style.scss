@@ -4,36 +4,36 @@
 @import "{{ site.theme }}";
 
 #banners {
-	    position: absolute;
-	      top:0;
-	      right: 10px;
-		  z-index: 10;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    z-index: 10;
 }
 
 #fork_banner {
-	  display: block;
-	    float: right;
-	    right: 10px;
-		    padding: 10px 50px 10px 10px;
-		    text-shadow: 1px 1px #000000;
-		      color: #fff;
-		        background: url('../images/blacktocat.png') #0090ff no-repeat 95% 50%;
-			  font-weight: 700;
-			    box-shadow: 0 0 10px rgba(0,0,0,.5);
-			      border-bottom-left-radius: 2px;
-			        border-bottom-right-radius: 2px;
+    display: block;
+    float: right;
+    right: 10px;
+    padding: 10px 50px 10px 10px;
+    text-shadow: 1px 1px #000000;
+    color: #fff;
+    background: url('../images/blacktocat.png') #0090ff no-repeat 95% 50%;
+    font-weight: 700;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
 }
 
 #downloadme_banner {
-	  display: block;
-	    float: left;
-	    margin-right: 10px;
-		    padding: 10px 50px 10px 10px;
-		    text-shadow: 1px 1px #000000;
-		      color: #fff;
-		        background: url('../images/blacktocat.png') #ff9d00 no-repeat 95% 50%;
-			  font-weight: 700;
-			    box-shadow: 0 0 10px rgba(0,0,0,.5);
-			      border-bottom-left-radius: 2px;
-			        border-bottom-right-radius: 2px;
-			}
+    display: block;
+    float: left;
+    margin-right: 10px;
+    padding: 10px 50px 10px 10px;
+    text-shadow: 1px 1px #000000;
+    color: #fff;
+    background: url('../images/blacktocat.png') #ff9d00 no-repeat 95% 50%;
+    font-weight: 700;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
