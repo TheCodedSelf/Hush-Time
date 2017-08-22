@@ -15,7 +15,9 @@ class AppOpenerCloser {
     
     func launchApp(named name: String, in workspace: NSWorkspace = NSWorkspace.shared()) {
         guard killedApps.contains(name) else { return }
-        workspace.launchApplication(name)
+        if !workspace.launchApplication(name) {
+            print("Error opening \(name)")
+        }
     }
     
     func killApp(named appName: String) {
